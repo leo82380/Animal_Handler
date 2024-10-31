@@ -26,5 +26,11 @@ namespace MK.Boss.State
             
             // TODO : 플레이어 도트딜 넣기
         }
+
+        public override void Exit()
+        {
+            _isEscape = false;
+            base.Exit();
+        }
     }
 }

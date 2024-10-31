@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006fd8f26130e7a40a0addf22f2fdfc2, type: 3}
-  m_Name: TailSwingState
+  m_Script: {fileID: 11500000, guid: f40b9b5bb11eca242852e6d06fadac6c, type: 3}
+  m_Name: ToxicExplosionState
   m_EditorClassIdentifier: 
-  StateEnum: 5
-  <PatternProbability>k__BackingField: 20
-  _attackLoadTime: 0.5
+  StateEnum: 8
+  <PatternProbability>k__BackingField: 70
+  _attackLoadTime: 0.7
   _attackCooldown: 0.3
+  _radius: 0

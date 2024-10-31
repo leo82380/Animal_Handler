@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using MK.Boss.Pattern;
 using ObjectPooling;
 using UnityEngine;
 
@@ -17,14 +17,12 @@ namespace MK.Boss
             
         }
 
-        private void OnEnable()
+        public void RealAttack()
         {
-            StartCoroutine(PushObject());
-        }
-
-        private IEnumerator PushObject()
-        {
-            yield return new WaitForSeconds(_duration);
+            TailSwing swing = PoolingManager.Instnace.Pop(PoolingType.TailSwing) as TailSwing;
+            swing.transform.position = new Vector2(swing.transform.position.x, transform.position.y);
+            swing.Attack();
+            
             PoolingManager.Instnace.Push(this);
         }
     }

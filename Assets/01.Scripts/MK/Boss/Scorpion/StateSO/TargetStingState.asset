@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006fd8f26130e7a40a0addf22f2fdfc2, type: 3}
-  m_Name: TailSwingState
+  m_Script: {fileID: 11500000, guid: 215a68d5200bfd44e8b190a1d28b3d51, type: 3}
+  m_Name: TargetStingState
   m_EditorClassIdentifier: 
-  StateEnum: 5
+  StateEnum: 7
   <PatternProbability>k__BackingField: 20
-  _attackLoadTime: 0.5
-  _attackCooldown: 0.3
+  _attackCount: 5
+  _attackLoadTime: 0.42
+  _attackCooldown: 0.47
+  _radiusMin: 4
+  _radiusMax: 7

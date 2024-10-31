@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ScorpionIdleState
   m_EditorClassIdentifier: 
   StateEnum: 0
-  _attackCooldown: 3
+  _attackCooldown: 1.5

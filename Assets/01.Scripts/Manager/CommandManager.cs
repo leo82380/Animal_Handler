@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class CommandManager : MonoBehaviour
@@ -15,13 +16,16 @@ public class CommandManager : MonoBehaviour
     [SerializeField] private List<string> _commandList;
     
     private int _currentCommandIndex = 0;
-    
-    
+
+    public List<Image> imageList = new List<Image>();
+
+    private bool _isCorrect;
     
     private void Awake()
     {
         _commandList = new List<string>();
         _currentCommandIndex = 0;
+        
         _inputReaderSO.MouseLeftClickEvent += OnMouseLeftClick;
         _inputReaderSO.MouseRightClickEvent += OnMouseRightClick;
         _inputReaderSO.MouseMiddleClickEvent += OnMouseMiddleClick;
@@ -36,6 +40,7 @@ public class CommandManager : MonoBehaviour
 
     private void OnMouseMiddleClick()
     {
+        if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Middle")
         {
             CorrectCommandEvent?.Invoke();
@@ -52,6 +57,7 @@ public class CommandManager : MonoBehaviour
 
     private void OnMouseRightClick()
     {
+        if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Right")
         {
             CorrectCommandEvent?.Invoke();
@@ -68,6 +74,7 @@ public class CommandManager : MonoBehaviour
 
     private void OnMouseLeftClick()
     {
+        if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Left")
         {
             CorrectCommandEvent?.Invoke();
@@ -82,13 +89,17 @@ public class CommandManager : MonoBehaviour
         _currentCommandIndex++;
     }
     
-    private void RandomCommandSetting(int count)
+    public void RandomCommandSetting(int count)
     {
         _commandList.Clear();
         for (int i = 0; i < count; i++)
         {
-            _commandList.Add(RandomCommand());
+            string cmd = RandomCommand();
+            _commandList.Add(cmd);
+            imageList[i].sprite = _commandSample[cmd];
         }
+
+        _isCorrect = true;
     }
 
     private string RandomCommand()

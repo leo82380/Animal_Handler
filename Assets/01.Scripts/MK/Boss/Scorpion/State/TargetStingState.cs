@@ -1,17 +1,20 @@
 using System.Collections;
+using MK.Boss.Pattern;
 using ObjectPooling;
 using UnityEngine;
 
 namespace MK.Boss.State
 {
+    [CreateAssetMenu(menuName = "SO/Boss/Scorpion/Pattern4")]
     public class TargetStingState : Pattern4State, IPatternProbability
     {
         [field: SerializeField] public int PatternProbability { get; set; }
         
         [SerializeField] private int _attackCount;
-        [SerializeField] private float _attackLoadCooldown;
+        [SerializeField] private float _attackLoadTime;
         [SerializeField] private float _attackCooldown;
-        [SerializeField] private float _radius;
+        [SerializeField] private int _radiusMin;
+        [SerializeField] private int _radiusMax;
 
         private bool _isAttack = false;
 
@@ -20,7 +23,6 @@ namespace MK.Boss.State
         public override void Enter()
         {
             base.Enter();
-            // TODO : Player Position 찾기
             _player = FindObjectOfType<Player>();
             
             _owner.StartCoroutine(Attack());
@@ -41,23 +43,18 @@ namespace MK.Boss.State
         }
 
         private IEnumerator Attack()
-        {
+        { 
             for (int i = 0; i < _attackCount; ++i)
             {
-                // TODO : AttackLoad 원으로 바꾸기
-                AttackLoad attackLoad = PoolingManager.Instnace.Pop(PoolingType.TailSwing_AttackLoad) as AttackLoad;
-                attackLoad.transform.position = _player.transform.position;
+                AttackLoadCircle attackLoadCircle = PoolingManager.Instnace.Pop(PoolingType.AttackLoad_Circle) as AttackLoadCircle;
+
+                attackLoadCircle.transform.position = _player.transform.position;
+                attackLoadCircle.RadiusAndPositionAttack(Mathf.Clamp(Random.Range(_radiusMin, _radiusMax + 1), 1, int.MaxValue));
                 
-                yield return new WaitForSeconds(_attackLoadCooldown);
+                yield return new WaitForSeconds(_attackLoadTime);
                 
-                // TODO : Attack 생성
+                attackLoadCircle.RealAttack();
                 
-                // 이거는 아니고 이렇게 하면 공격 범위 보여줌 
-                // 그리고 기다림
-                // 그리고 공격
-                // 바로 공격 범위
-                // 공격과 공격 즉 공격 범위와 공격 사이에 시간이 존재하지 않음 이걸 원하지 않는거면 바꿔야 함
-                // 일단 땜빵 하겠음
                 yield return new WaitForSeconds(_attackCooldown);
             }
 
