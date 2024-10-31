@@ -1,8 +1,9 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerAttackChoiceItem : MonoBehaviour, IPointerClickHandler
+public class PlayerAttackChoiceItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private PlayerAttackChoicePanel _playerAttackChoicePanel;
     [SerializeField] private AnimalGet _animalGet;
@@ -26,5 +27,15 @@ public class PlayerAttackChoiceItem : MonoBehaviour, IPointerClickHandler
             _animalGet.Percentage += _attackChoiceSO.UpgradeValue;
         }
         _playerAttackChoicePanel.Close();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        transform.DOScale(new Vector3(1, 1, 1), 0.3f);
     }
 }
