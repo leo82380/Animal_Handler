@@ -1,16 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "State/BearIdle")]
-public class BearIdleState : IdleState
+[CreateAssetMenu(menuName = "State/Bear/Pattern2")]
+public class BearPattern2State : Pattern2State
 {
     public override void Enter()
     {
         base.Enter();
+
     }
     public override void UpdateState()
     {
         base.UpdateState();
+
     }
     public override void Exit()
     {
