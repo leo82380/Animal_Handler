@@ -30,6 +30,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnDie()
     {
-        
+        Debug.Log("Die");
     }
 }
