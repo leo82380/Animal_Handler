@@ -8,7 +8,6 @@ namespace Manager.MouseWinAPI
     {
         private const uint SPI_SETMOUSESPEED = 0x0071;
         private const uint SPI_GETMOUSESPEED = 0x0070;
-        private const uint SPI_SETMOUSECLICKLOCK = 0x101F;
         
         private static int _defaultMouseSpeed;
     
@@ -52,15 +51,6 @@ namespace Manager.MouseWinAPI
         public static void ResetMouseSpeed()
         {
             SystemParametersInfo(SPI_SETMOUSESPEED, 0, (IntPtr) _defaultMouseSpeed, 0);
-        }
-    
-        /// <summary>
-        /// 마우스 입력 차단 여부
-        /// </summary>
-        /// <param name="isBlock">차단할지 여부</param>
-        public static void SetBlockInput(bool isBlock)
-        {
-            SystemParametersInfo(SPI_SETMOUSECLICKLOCK, 0, ref isBlock, 0);
         }
     }
 }

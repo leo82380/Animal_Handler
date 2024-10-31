@@ -23,13 +23,5 @@ public class TestMouse : MonoBehaviour
         {
             MouseWinAPIManager.ResetMouseSpeed();
         }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            MouseWinAPIManager.SetBlockInput(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.H))
-        {
-            MouseWinAPIManager.SetBlockInput(false);
-        }
     }
 }
