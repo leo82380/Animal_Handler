@@ -7,6 +7,11 @@ public class BearIdleState : IdleState
     public override void Enter()
     {
         base.Enter();
+        int c = Random.Range((int)StateEnum.Pattern1, (int)StateEnum.Pattern1 + _owner.patterns.Count);
+        
+        Debug.Log((StateEnum)c);
+       
+        _stateMachine.ChangeState((StateEnum)c);
     }
     public override void UpdateState()
     {
