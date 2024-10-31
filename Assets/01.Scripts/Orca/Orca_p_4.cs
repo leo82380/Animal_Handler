@@ -15,7 +15,7 @@ public class Orca_p_4 : OState
         if(!body.filedIsWater)
         {
             body.filedIsWater = true;
-            sea.DOLocalMoveY(-540, 5);
+            sea.DOLocalMoveY(-560, 5);
         }
 
         yield return null;
