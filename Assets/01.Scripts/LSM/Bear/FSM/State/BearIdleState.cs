@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "State/BearIdle")]
+[CreateAssetMenu(menuName = "State/Bear/Idle")]
 public class BearIdleState : IdleState
 {
     public override void Enter()
