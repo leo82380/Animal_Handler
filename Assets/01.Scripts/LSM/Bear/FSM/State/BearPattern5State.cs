@@ -23,7 +23,6 @@ public class BearPattern5State : Pattern5State
         }
         
         MouseEventManager.Instnace.StartCount(patternTime);
-        MouseWinAPIManager.SetCursorPosInScreen(1920/2,1080/2);
         MouseEventManager.Instnace.OnClick += ClickHandleEvent;
         
 
@@ -33,7 +32,15 @@ public class BearPattern5State : Pattern5State
     {
         base.UpdateState();
         if (_endTriggerCalled)
+        {
             _stateMachine.ChangeState(StateEnum.Idle);
+        }
+        else
+        {
+            MouseWinAPIManager.SetCursorPosInScreen(1920 / 2, 1080 / 2);
+
+        }
+        //_stateMachine.ChangeState(StateEnum.Idle);
         //else
         //{
         //    MouseWinAPIManager.SetCursorPosInScreen(1920 / 2, 1080 / 2);
@@ -56,14 +63,13 @@ public class BearPattern5State : Pattern5State
 
     private void ClickHandleEvent(float obj,float time)
     {
-        Debug.Log(obj);
         if(obj >= _clickCnt)
         {
             _endTriggerCalled = true;
         }
         else if (time > patternTime)
         {
-            
+            MouseEventManager.Instnace.StopCount();
             _endTriggerCalled = true;
         }
     }
