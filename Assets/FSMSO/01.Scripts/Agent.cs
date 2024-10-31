@@ -23,7 +23,7 @@ public class Agent : MonoBehaviour
 
     [SerializeField] private GameObject _mainVisual;
     
-    [SerializeField] private List<State> _states;
+    [SerializeField] protected List<State> _states;
     
     private void Awake()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pattern3State : State
+public class Pattern3State : PatternState
 {
     
 }
