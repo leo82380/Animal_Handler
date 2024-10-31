@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class option : MonoBehaviour
 {
     [SerializeField] private GameObject optionUI;
+    public List<string> mapString;
+
+    [Range(1,3)] public int stage = 1;
 
     public void OpenOptionUI()
     {
@@ -18,6 +21,19 @@ public class option : MonoBehaviour
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(optionUI);
         optionUI.SetActive(false);
+
+        for (int i = 0; i < 10; i++)
+        {
+            int n = Random.Range(1, 4), r =  Random.Range(1,4);
+            string temp = mapString[n];
+            mapString[n] = mapString[r];
+            mapString[r] = temp;
+        }
+    }
+
+    public void NextScene()
+    {
+        SceneMove(mapString[stage++]);
     }
 
     public void SceneMove(string _sceneName)
