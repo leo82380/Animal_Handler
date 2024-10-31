@@ -12,7 +12,6 @@ public class BearPattern5State : Pattern5State
     public float patternTime;
     [SerializeField] private float _clickCnt;
     private bool isShake;
-    private Health playerHealth;
 
     public override void Enter()
     {
@@ -48,7 +47,7 @@ public class BearPattern5State : Pattern5State
 
         if (isShake)
         {
-            cinemachineManager.ShakeCamera(2f);
+            cinemachineManager.ShakeCamera(0.5f);
             isShake = false;
         }
         
@@ -69,6 +68,7 @@ public class BearPattern5State : Pattern5State
         }
         else if (time > patternTime)
         {
+            PlayerManager.Instnace.PlayerHealth.TakeDamage(1);
             MouseEventManager.Instnace.StopCount();
             _endTriggerCalled = true;
         }

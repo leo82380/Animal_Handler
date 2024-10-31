@@ -21,7 +21,7 @@ public class Agent : MonoBehaviour
     public Dictionary<string, List<GameObject>> patterns;
 
 
-    [SerializeField] private GameObject _mainVisual;
+    public GameObject mainVisual;
     
     [SerializeField] protected List<State> _states;
     

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MouseEventManager : MonoSingleton<MouseEventManager>
 {
-    public Action<float> OnShake;
+    public Action<float,float> OnShake;
     public Action<float,float> OnClick;
     [SerializeField] private InputReaderSO _inputReaderSO;
     
@@ -14,19 +14,19 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     private Coroutine _stopShakeCorotine;
     private Coroutine _stopClickCorotine;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Test();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        Test();
+    //    }
+    //}
 
-    [ContextMenu("Test")]
-    public void Test()
-    {
-        StartShake();
-    }
+    //[ContextMenu("Test")]
+    //public void Test()
+    //{
+    //    StartShake();
+    //}
     private void Awake()
     {
         _inputReaderSO.MouseRightClickEvent += OnMouseRightClick;
@@ -97,9 +97,9 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     #endregion
 
     #region Mouse Shake
-    public void StartShake()
+    public void StartShake(float time)
     {
-        _stopClickCorotine = StartCoroutine(Shake());
+        _stopClickCorotine = StartCoroutine(Shake(time));
     }
 
     public void StopShake()
@@ -110,17 +110,19 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
         }
     }
 
-    private IEnumerator Shake()
+    private IEnumerator Shake(float time)
     {
         float percent = 0;
-        while (percent < 100000)
+        float currnetTIme = 0;
+        while (percent < 100000 && time >= currnetTIme)
         {
+            currnetTIme += Time.deltaTime;
             var beforePosition = _inputReaderSO.MousePosition;
             yield return null;
             var afterPosition = _inputReaderSO.MousePosition;
             var distance = Vector2.Distance(beforePosition, afterPosition);
             percent += distance;
-            OnShake?.Invoke(percent);
+            OnShake?.Invoke(percent, currnetTIme);
         }
         
         Debug.Log("Shake End");

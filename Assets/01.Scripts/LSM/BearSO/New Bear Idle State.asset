@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: New Bear Idle State
   m_EditorClassIdentifier: 
   StateEnum: 0
+  patternDelayTime: 0.5

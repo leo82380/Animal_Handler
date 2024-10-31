@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: BearPattern1State
   m_EditorClassIdentifier: 
   StateEnum: 4
+  Pattern1:
+  - {fileID: 0}
+  - {fileID: 0}
+  Pattern2:
+  - {fileID: 0}
+  - {fileID: 0}

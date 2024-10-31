@@ -14,9 +14,11 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Health health))
-        {
-            health.TakeDamage(1);
-        }
+        //if(collision.TryGetComponent(out Health health))
+        //{
+        //    health.TakeDamage(1);
+        //    Debug.Log(1);
+        //}
+        PlayerManager.Instnace.PlayerHealth.TakeDamage(1);
     }
 }

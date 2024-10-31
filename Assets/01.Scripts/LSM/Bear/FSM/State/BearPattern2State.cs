@@ -8,12 +8,13 @@ using UnityEngine.Rendering.Universal;
 public class BearPattern2State : Pattern2State
 {
     public FullScreenPassRendererFeature fullScrean;
+    public float patternTime;
     public Material mat;
 
     public override void Enter()
     {
         base.Enter();
-        MouseEventManager.Instnace.StartShake();
+        MouseEventManager.Instnace.StartShake(patternTime);
         MouseEventManager.Instnace.OnShake += ShakeHandleEvent;
         mat.SetFloat("_Power", 0);
         fullScrean.SetActive(true);
@@ -34,7 +35,7 @@ public class BearPattern2State : Pattern2State
         base.Exit();
     }
 
-    private void ShakeHandleEvent(float obj)
+    private void ShakeHandleEvent(float obj,float time)
     {
         if(mat != null && mat.GetFloat("_Power") <= 1)
         {
@@ -44,6 +45,12 @@ public class BearPattern2State : Pattern2State
             if(a >= 1)
             {
                 MouseEventManager.Instnace.StopShake();
+                _endTriggerCalled = true;
+            }
+            else if(time > patternTime)
+            {
+                MouseEventManager.Instnace.StopShake();
+                PlayerManager.Instnace.PlayerHealth.TakeDamage(1);
                 _endTriggerCalled = true;
             }
         }
