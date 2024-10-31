@@ -9,7 +9,7 @@ public class Agent : MonoBehaviour
     public bool CanStateChangeable { get; private set; } = true;
     public bool IsDead { get; private set; }
     
-    [SerializeField] private List<State> _states;
+    [SerializeField] protected List<State> _states;
     
     private void Awake()
     {
