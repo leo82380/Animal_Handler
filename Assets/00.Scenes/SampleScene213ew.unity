@@ -648,7 +648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1051580655}
-  _cursorSprites: []
+  _cursorSprites:
+  - {fileID: 2800000, guid: efff7d0772090824bb17d7e2fd1f1d39, type: 3}
+  - {fileID: 2800000, guid: b6a067832dc33d247b877053743fdbfc, type: 3}
+  - {fileID: 2800000, guid: 4c2f1f8adfcc4ae468e3bef76bb562d8, type: 3}
+  - {fileID: 2800000, guid: 3d9a0feaceb27014c86e3ab260fd082c, type: 3}
 --- !u!114 &1051580657
 MonoBehaviour:
   m_ObjectHideFlags: 0

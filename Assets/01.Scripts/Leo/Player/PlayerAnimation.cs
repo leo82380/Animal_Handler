@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -13,6 +12,7 @@ public class PlayerAnimation : MonoBehaviour
         _health.OnHealthChange += OnHealthChange;
     }
 
+    #if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -20,9 +20,11 @@ public class PlayerAnimation : MonoBehaviour
             _health.TakeDamage(1);
         }
     }
+    #endif
 
     private void OnHealthChange(int obj)
     {
+        if (_cursorSprites[obj] == null) return;
         Cursor.SetCursor(_cursorSprites[obj], Vector2.zero, CursorMode.Auto);
     }
 
