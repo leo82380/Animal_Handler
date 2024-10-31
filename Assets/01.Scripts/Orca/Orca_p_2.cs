@@ -17,13 +17,13 @@ public class Orca_p_2 : OState
     {
         leftStart = Random.Range(0, 2) == 0;
 
-        wave.localPosition = new Vector2(leftStart ? -1350 : 1350, 1480);
+        wave.localPosition = new Vector2(leftStart ? -1350 : 1350, body.filedIsWater ? 880 : 1480);
         wave.localScale = new Vector3(leftStart ? 1 : -1, 1, 1);
         wave.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(1f);
 
-        wave.DOLocalMove(new Vector3(leftStart ? 1350 : -1350, 1100), 1.8f);
+        wave.DOLocalMove(new Vector3(leftStart ? 1350 : -1350, body.filedIsWater ? 600 : 1100), 2.3f);
 
 
         StartCoroutine(body.StateReset());

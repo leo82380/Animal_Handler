@@ -67,7 +67,7 @@ public class Orca_p_1 : OState
             sign2.position = new Vector2(orcaVisual2.position.x, sign2.position.y);
         }
         
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.2f);
 
         float timer = Random.Range(1.5f, 1.9f);
         orcaVisual.DOJump(new Vector3(orcaVisual.position.x + Random.Range(30, 60) * (reflectionDir ? -1 : 1),
