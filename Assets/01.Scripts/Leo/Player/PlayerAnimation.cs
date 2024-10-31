@@ -26,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnHealthChange(int obj)
     {
-        //if (_cursorSprites[obj] == null) return;
+        if (obj <= 0) return;
         Cursor.SetCursor(_cursorSprites[obj], Vector2.zero, CursorMode.Auto);
         var particle = Instantiate(_breakEffect, transform.position, Quaternion.identity);
         particle.Play();
@@ -35,6 +35,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnDie()
     {
-        
+        Debug.Log("Die");
     }
 }

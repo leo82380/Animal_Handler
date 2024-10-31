@@ -22,7 +22,7 @@ public class Orca : MonoBehaviour
 
     private int SelectInt()
     {
-        return Random.Range(1, 4 + (level == 3 ? 1 : 0)) + (filedIsWater ? 1 : 0);
+        return Random.Range(1, 4 + (level >= 3 ? 1 : 0)) + (filedIsWater ? 1 : 0);
     }
 
     public IEnumerator StateReset()

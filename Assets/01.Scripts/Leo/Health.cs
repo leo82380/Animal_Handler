@@ -8,7 +8,7 @@ public class Health : MonoBehaviour, IDamageable
     
     [SerializeField] private int _maxHealth;
     
-    private int _currentHealth;
+    [SerializeField]private int _currentHealth;
 
     private void Awake()
     {
