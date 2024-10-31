@@ -6,11 +6,13 @@ using UnityEngine;
 public class MouseEventManager : MonoSingleton<MouseEventManager>
 {
     public Action<float> OnShake;
+    public Action<float,float> OnClick;
     [SerializeField] private InputReaderSO _inputReaderSO;
     
     private int _clickCount;
 
-    private Coroutine _stopCorotine;
+    private Coroutine _stopShakeCorotine;
+    private Coroutine _stopClickCorotine;
 
     private void Update()
     {
@@ -50,39 +52,61 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     #region Jack
     public void StartCount(float time)
     {
-        StartCoroutine(Count(time));
+        _stopClickCorotine =  StartCoroutine( Count(time));
     }
+
+    //private IEnumerator Count(float time)
+    //{
+    //    float currentTime = 0;
+    //    while (true)
+    //    {
+    //        currentTime += Time.deltaTime;
+    //        if (currentTime >= time)
+    //        {
+    //            //_clickCount = 0;
+    //            break;
+    //        }
+    //        yield return null;
+    //    }
+    //    Debug.Log(_clickCount);
+    //    Debug.Log("Count End");
+    //    _clickCount = 0;
+    //}
 
     private IEnumerator Count(float time)
     {
         float currentTime = 0;
-        while (true)
+        while (currentTime < time)
         {
             currentTime += Time.deltaTime;
-            if (currentTime >= time)
-            {
-                //_clickCount = 0;
-                break;
-            }
+            
             yield return null;
+            OnClick?.Invoke(_clickCount, currentTime);
         }
         Debug.Log(_clickCount);
         Debug.Log("Count End");
         _clickCount = 0;
     }
+
+    public void StopCount()
+    {
+        StopCoroutine(_stopClickCorotine);
+    }
+
+     
     #endregion
 
     #region Mouse Shake
     public void StartShake()
     {
-        _stopCorotine = StartCoroutine(Shake());
+        _stopClickCorotine = StartCoroutine(Shake());
     }
 
     public void StopShake()
     {
-        if (_stopCorotine != null)
+        if (_stopClickCorotine != null)
         {
-            StopCoroutine(_stopCorotine);
+            StopCoroutine(_stopClickCorotine);
         }
     }
 

@@ -10,7 +10,7 @@ public class BearIdleState : IdleState
         int c = Random.Range((int)StateEnum.Pattern1, (int)StateEnum.Pattern1 + _owner.patterns.Count);
         
         //_stateMachine.ChangeState((StateEnum)c);
-        _stateMachine.ChangeState(StateEnum.Pattern2);
+        _stateMachine.ChangeState(StateEnum.Pattern5);
     }
     public override void UpdateState()
     {

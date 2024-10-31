@@ -44,7 +44,7 @@ public class BearPattern2State : Pattern2State
             if(a >= 1)
             {
                 MouseEventManager.Instnace.StopShake();
-                Debug.Log(obj);
+                _endTriggerCalled = true;
             }
         }
 

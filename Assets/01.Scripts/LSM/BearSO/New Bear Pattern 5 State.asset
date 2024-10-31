@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: New Bear Pattern 5 State
   m_EditorClassIdentifier: 
   StateEnum: 8
+  cinemachineManager: {fileID: 0}
+  patternTime: 10
+  _clickCnt: 10
