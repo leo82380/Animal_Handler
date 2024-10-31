@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "State/Orca/Idle")]
 public class Orca_Idle : OState
 {
-    public override void Awake()
+    public override void Start()
     {
         body = GetComponentInParent<Orca>();
     }

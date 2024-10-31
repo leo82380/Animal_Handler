@@ -8,7 +8,7 @@ public class Orca_p_2 : OState
     [SerializeField] private Transform wave;
     [SerializeField] private bool leftStart;
 
-    public override void Awake()
+    public override void Start()
     {
         body = GetComponentInParent<Orca>();
         wave.gameObject.SetActive(false);

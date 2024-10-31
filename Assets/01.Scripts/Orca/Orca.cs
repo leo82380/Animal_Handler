@@ -39,7 +39,7 @@ public class Orca : MonoBehaviour
 
         int num = SelectInt();
         Debug.Log(num);
-        num = 3;
+        num = 5;
         StartCoroutine(stateList[num].UseSkill());
     }
 }

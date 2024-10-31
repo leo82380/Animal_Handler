@@ -41,5 +41,5 @@ Material:
     - _QueueOffset: 0
     - _Speed: 1
     m_Colors:
-    - _SeaColor: {r: 2, g: 2, b: 2, a: 0}
+    - _SeaColor: {r: 0.09238125, g: 0.19282061, b: 0.6831925, a: 0}
   m_BuildTextureStacks: []

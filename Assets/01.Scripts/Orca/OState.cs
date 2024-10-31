@@ -6,5 +6,5 @@ public abstract class OState : MonoBehaviour
 {
     internal Orca body;
     public abstract IEnumerator UseSkill();
-    public abstract void Awake();
+    public abstract void Start();
 }

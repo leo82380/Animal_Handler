@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
-  m_Name: Pool_Water_Bubble
+  m_Name: Pool_Water_Tonado
   m_EditorClassIdentifier: 
-  enumName: Water_Bubble
-  poolingName: wb
+  enumName: Water_Tonado
+  poolingName: wt
   description: 
-  poolCount: 3
-  prefabObject: {fileID: 8048053522315072803, guid: 0be2680bba293e24280a81984b9d1eb1, type: 3}
+  poolCount: 2
+  prefabObject: {fileID: 6739579014347320215, guid: ed903ae73edd90340ba9a236bd053b8c, type: 3}

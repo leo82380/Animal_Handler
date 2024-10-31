@@ -3,25 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using ObjectPooling;
 
 public class Orca_p_1 : OState
 {
+    [SerializeField] private Transform sea;
     [SerializeField] private Transform orcaVisual;
-    [SerializeField] private Transform sign;
+    internal Transform sign;
     [SerializeField] private Transform orcaVisual2;
-    [SerializeField] private Transform sign2;
+    internal Transform sign2;
 
     [SerializeField] private bool reflectionDir = false;
     [SerializeField] private bool reflectionDir2 = false;
 
 
-    public override void Awake()
+    public override void Start()
     {
         body = GetComponentInParent<Orca>();
         orcaVisual.gameObject.SetActive(false);
         orcaVisual2.gameObject.SetActive(false);
+
+
+        sign = PoolingManager.Instnace.Pop(PoolingType.Water_Bubble).ObjectPrefab.transform;
         sign.gameObject.SetActive(false);
+        sign.parent = sea;
+        sign.localScale = Vector3.one;
+        sign.localPosition = new Vector3(0, 1150);
+
+        orcaVisual.GetComponent<OrcaSlave>().target = sign.GetComponent<Collider2D>();
+
+        sign2 = PoolingManager.Instnace.Pop(PoolingType.Water_Bubble).ObjectPrefab.transform;
         sign2.gameObject.SetActive(false);
+        sign2.parent = sea;
+        sign2.localScale = Vector3.one;
+        sign2.localPosition = new Vector3(0, 1150);
+
+        orcaVisual2.GetComponent<OrcaSlave>().target = sign2.GetComponent<Collider2D>();
     }
 
     public override IEnumerator UseSkill()

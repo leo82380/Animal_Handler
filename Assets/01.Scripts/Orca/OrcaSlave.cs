@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class OrcaSlave : MonoBehaviour
 {
+    internal Collider2D target;
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("Jump"))
+        if (target == collision)
         {
-            Debug.Log(gameObject.name[11]);
-            if (gameObject.name[11] == collision.gameObject.name[14])
-                collision.gameObject.SetActive(false);
+            Debug.Log(target.gameObject.name + " / " + collision.gameObject.name);
+            collision.gameObject.SetActive(false);
         }
     }
 }
