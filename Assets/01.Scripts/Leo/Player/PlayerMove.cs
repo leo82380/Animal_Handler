@@ -11,5 +11,6 @@ public class PlayerMove : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(_inputReaderSO.MousePosition);
         mousePosition.z = 0;
         MousePosition = mousePosition;
+        Debug.Log(MousePosition);
     }
 }
