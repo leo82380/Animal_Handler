@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
+using MKDir;
 using UnityEngine;
 
-public class MouseEventManager : MonoBehaviour
+public class MouseEventManager : MonoSingleton<MouseEventManager>
 {
+    public Action<float> OnShake;
     [SerializeField] private InputReaderSO _inputReaderSO;
     
     private int _clickCount;
@@ -84,6 +86,7 @@ public class MouseEventManager : MonoBehaviour
             var afterPosition = _inputReaderSO.MousePosition;
             var distance = Vector2.Distance(beforePosition, afterPosition);
             percent += distance;
+            OnShake?.Invoke(percent);
             Debug.Log(percent);
         }
         
