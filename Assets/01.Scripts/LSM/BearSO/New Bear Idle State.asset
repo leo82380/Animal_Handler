@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec84a303fccb9347bd76d7075d2d7ed, type: 3}
-  m_Name: BearPattern2State
+  m_Script: {fileID: 11500000, guid: 2e1b99aed1c368545a2131e13ba457fc, type: 3}
+  m_Name: New Bear Idle State
   m_EditorClassIdentifier: 
-  StateEnum: 5
+  StateEnum: 0

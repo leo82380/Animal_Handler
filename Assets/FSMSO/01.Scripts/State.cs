@@ -10,7 +10,7 @@ public abstract class State : ScriptableObject
     protected bool _endTriggerCalled;
     protected int _animBoolHash;
     
-    public void Initialize(StateMachine stateMachine, Agent owner, string animBoolName)
+    public virtual void Initialize(StateMachine stateMachine, Agent owner, string animBoolName)
     {
         _stateMachine = stateMachine;
         _owner = owner;

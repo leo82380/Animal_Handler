@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913756110d8c4e0489ce61106c800050, type: 3}
   m_Name: New Bear Pattern 5 State
   m_EditorClassIdentifier: 
-  StateEnum: 0
+  StateEnum: 8

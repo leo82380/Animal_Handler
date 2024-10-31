@@ -6,42 +6,48 @@ using Unity.VisualScripting;
 [System.Serializable]
 public struct Pattern
 {
-    public string name;
-    public List<GameObject> patternObj;
+    public string Name;
+    public List<GameObject> patternObjs;
 }
-
 
 public class Agent : MonoBehaviour
 {
 
     public StateMachine StateMachine { get; private set; }
-    public Animator AnimatorCompo { get; private set; }
+    public Animator AnimatorCompo { get; set; }
     public bool CanStateChangeable { get; private set; } = true;
     public bool IsDead { get; private set; }
-    [SerializeField] Pattern[] _patterns;
+    [SerializeField] private Pattern[] _patternsStruct;
+    public Dictionary<string, List<GameObject>> patterns;
+
+
     [SerializeField] private GameObject _mainVisual;
-    private Dictionary<string,List<GameObject>> _patternDictionary;
     
     [SerializeField] private List<State> _states;
     
     private void Awake()
     {
-        AnimatorCompo = GetComponent<Animator>();
+        Transform visual = transform.Find("Visual");
+        AnimatorCompo = visual.GetComponent<Animator>();
         StateMachine = new StateMachine();
-        _patternDictionary =    new Dictionary<string,List<GameObject>>();
+        patterns = new Dictionary<string, List<GameObject>>();
 
-
-
+        if(_patternsStruct.Length > 0)
+        {
+            SetPattern();
+        }
         InitStates();
     }
 
-    private void SetPatternObj()
+    private void SetPattern()
     {
-        foreach(Pattern i in _patterns)
+        foreach(Pattern i in _patternsStruct)
         {
-            _patternDictionary.Add(i.name, i.patternObj);
+            patterns.Add(i.Name, i.patternObjs);
         }
     }
+
+
 
     private void InitStates()
     {
@@ -58,7 +64,7 @@ public class Agent : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
-        Debug.Log("Current State: " + StateMachine.CurrentState);
+        //Debug.Log("Current State: " + StateMachine.CurrentState);
     }
     
     public void SetStateChangeable(bool value)
