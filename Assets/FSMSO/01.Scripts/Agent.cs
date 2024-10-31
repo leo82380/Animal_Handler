@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using EasySave.Json;
 
 public class Agent : MonoBehaviour
 {
