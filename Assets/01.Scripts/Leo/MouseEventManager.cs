@@ -5,24 +5,28 @@ using UnityEngine;
 
 public class MouseEventManager : MonoSingleton<MouseEventManager>
 {
-    public Action<float> OnShake;
+    public Action<float,float> OnShake;
+    public Action<float,float> OnClick;
     [SerializeField] private InputReaderSO _inputReaderSO;
     
     private int _clickCount;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Test();
-        }
-    }
+    private Coroutine _stopShakeCorotine;
+    private Coroutine _stopClickCorotine;
 
-    [ContextMenu("Test")]
-    public void Test()
-    {
-        StartShake();
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        Test();
+    //    }
+    //}
+
+    //[ContextMenu("Test")]
+    //public void Test()
+    //{
+    //    StartShake();
+    //}
     private void Awake()
     {
         _inputReaderSO.MouseRightClickEvent += OnMouseRightClick;
@@ -48,46 +52,77 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     #region Jack
     public void StartCount(float time)
     {
-        StartCoroutine(Count(time));
+        _stopClickCorotine =  StartCoroutine( Count(time));
     }
+
+    //private IEnumerator Count(float time)
+    //{
+    //    float currentTime = 0;
+    //    while (true)
+    //    {
+    //        currentTime += Time.deltaTime;
+    //        if (currentTime >= time)
+    //        {
+    //            //_clickCount = 0;
+    //            break;
+    //        }
+    //        yield return null;
+    //    }
+    //    Debug.Log(_clickCount);
+    //    Debug.Log("Count End");
+    //    _clickCount = 0;
+    //}
 
     private IEnumerator Count(float time)
     {
         float currentTime = 0;
-        while (true)
+        while (currentTime < time)
         {
             currentTime += Time.deltaTime;
-            if (currentTime >= time)
-            {
-                //_clickCount = 0;
-                break;
-            }
+            
             yield return null;
+            OnClick?.Invoke(_clickCount, currentTime);
         }
         Debug.Log(_clickCount);
         Debug.Log("Count End");
         _clickCount = 0;
     }
+
+    public void StopCount()
+    {
+        StopCoroutine(_stopClickCorotine);
+    }
+
+     
     #endregion
 
     #region Mouse Shake
-    public void StartShake()
+    public void StartShake(float time)
     {
-        StartCoroutine(Shake());
+        _stopClickCorotine = StartCoroutine(Shake(time));
     }
 
-    private IEnumerator Shake()
+    public void StopShake()
+    {
+        if (_stopClickCorotine != null)
+        {
+            StopCoroutine(_stopClickCorotine);
+        }
+    }
+
+    private IEnumerator Shake(float time)
     {
         float percent = 0;
-        while (percent < 10000)
+        float currnetTIme = 0;
+        while (percent < 100000 && time >= currnetTIme)
         {
+            currnetTIme += Time.deltaTime;
             var beforePosition = _inputReaderSO.MousePosition;
             yield return null;
             var afterPosition = _inputReaderSO.MousePosition;
             var distance = Vector2.Distance(beforePosition, afterPosition);
             percent += distance;
-            OnShake?.Invoke(percent);
-            Debug.Log(percent);
+            OnShake?.Invoke(percent, currnetTIme);
         }
         
         Debug.Log("Shake End");

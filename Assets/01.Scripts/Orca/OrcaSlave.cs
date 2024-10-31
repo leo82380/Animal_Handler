@@ -14,4 +14,10 @@ public class OrcaSlave : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.TryGetComponent(out Health health);
+        if (health != null) health.TakeDamage(1);
+    }
 }

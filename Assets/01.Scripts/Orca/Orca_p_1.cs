@@ -44,9 +44,10 @@ public class Orca_p_1 : OState
     public override IEnumerator UseSkill()
     {
         int xPos = Random.Range(-750, 751);
-        orcaVisual.localPosition = new Vector2(xPos, -680);
+        orcaVisual.localPosition = new Vector2(xPos, -800);
         reflectionDir = xPos > 0;
-        orcaVisual.rotation = Quaternion.Euler(0, 0, xPos > 0 ? 12 : 168);
+        orcaVisual.rotation = Quaternion.Euler(0, 0, 55 * (reflectionDir ? -1 : 1));
+        orcaVisual.localScale = new Vector3(reflectionDir ? -1 : 1, 1, 1);
         orcaVisual.gameObject.SetActive(true);
 
         sign.gameObject.SetActive(true);
@@ -56,33 +57,34 @@ public class Orca_p_1 : OState
         if (body.level >= 2)
         {
             int xPos2 = Random.Range(-750, 751);
-            orcaVisual2.localPosition = new Vector2(xPos2, -680);
+            orcaVisual2.localPosition = new Vector2(xPos2, -800);
             reflectionDir2 = xPos2 > 0;
-            orcaVisual2.rotation = Quaternion.Euler(0, 0, xPos2 > 0 ? 12 : 168);
+            orcaVisual2.rotation = Quaternion.Euler(0, 0, 55 * (reflectionDir2 ? -1 : 1));
+            orcaVisual2.localScale = new Vector3(reflectionDir2 ? -1 : 1, 1, 1);
             orcaVisual2.gameObject.SetActive(true);
 
             sign2.gameObject.SetActive(true);
             sign2.position = new Vector2(orcaVisual2.position.x, sign2.position.y);
         }
         
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.2f);
 
         float timer = Random.Range(1.5f, 1.9f);
         orcaVisual.DOJump(new Vector3(orcaVisual.position.x + Random.Range(30, 60) * (reflectionDir ? -1 : 1),
             orcaVisual.position.y), Random.Range(30, 40), 1, timer)
-            .OnStart(()=>orcaVisual.DORotate(new Vector3(0, 0, reflectionDir ? 168 : 12), timer - 0.5f));
+            .OnStart(()=>orcaVisual.DORotate(new Vector3(0, 0, reflectionDir ? 55 : -55), timer - 0.5f));
 
         if(body.level >= 2)
         {
             timer = Random.Range(1.5f, 1.9f);
             orcaVisual2.DOJump(new Vector3(orcaVisual2.position.x + Random.Range(30, 60) * (reflectionDir2 ? -1 : 1),
                 orcaVisual2.position.y), Random.Range(30, 40), 1, timer)
-                .OnStart(() => orcaVisual2.DORotate(new Vector3(0, 0, reflectionDir2 ? 168 : 12), timer - 0.5f));
+                .OnStart(() => orcaVisual2.DORotate(new Vector3(0, 0, reflectionDir2 ? 55 : -55), timer - 0.5f));
         }
-        
 
 
 
-        body.StateReset();
+
+        StartCoroutine(body.StateReset());
     }
 }

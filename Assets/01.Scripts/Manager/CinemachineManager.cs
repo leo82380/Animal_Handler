@@ -1,16 +1,18 @@
 ﻿using Cinemachine;
 using UnityEngine;
 using DG.Tweening;
+using MKDir;
 
 namespace Manager.Cinemachine
 {
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    public class CinemachineManager : MonoBehaviour
+    public class CinemachineManager : MonoSingleton<CinemachineManager>
     {
+
         [SerializeField] private CinemachineImpulseSource _impulseSource;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private float _defaultZoom = 60;
-    
+
         /// <summary>
         /// 카메라 흔들기
         /// </summary>

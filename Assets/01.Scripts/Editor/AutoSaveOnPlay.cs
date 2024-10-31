@@ -15,10 +15,8 @@ public class AutoSaveOnPlay
     {
         if (obj == PlayModeStateChange.ExitingEditMode)
         {
-            Debug.Log($"{SceneManager.GetActiveScene().name} Scene saving...");
             EditorSceneManager.SaveOpenScenes();
             AssetDatabase.SaveAssets();
-            Debug.Log($"{SceneManager.GetActiveScene().name} Scene saved at {System.DateTime.Now}");
         }
     }
 }

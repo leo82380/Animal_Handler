@@ -1,4 +1,5 @@
 ﻿using System;
+using Manager.Cinemachine;
 using UnityEngine;
 
 public class Player : MonoBehaviour
