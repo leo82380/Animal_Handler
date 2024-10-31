@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TailState
   m_EditorClassIdentifier: 
   StateEnum: 4
-  <PatternProbability>k__BackingField: 30
-  _attackCount: 0
-  _attackCoolTime: 0
+  <PatternProbability>k__BackingField: 20
+  _attackCount: 3
+  _attackCoolTime: 0.3

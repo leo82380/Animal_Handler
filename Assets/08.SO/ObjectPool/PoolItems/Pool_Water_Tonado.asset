@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_Water_Tonado
+  m_EditorClassIdentifier: 
+  enumName: Water_Tonado
+  poolingName: wt
+  description: 
+  poolCount: 2
+  prefabObject: {fileID: 6739579014347320215, guid: ed903ae73edd90340ba9a236bd053b8c, type: 3}

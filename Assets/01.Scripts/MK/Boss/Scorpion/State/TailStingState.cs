@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,9 +9,11 @@ namespace MK.Boss.State
         [field: SerializeField] public int PatternProbability { get; set; }
 
         [SerializeField] private int _attackCount;
-        [SerializeField] private float _attackCoolTime;
+        [SerializeField] private float _attackCooldown;
+        [SerializeField] private float _radius;
 
         private Scorpion _scorpion;
+        private bool _isAttack = false;
         
         public int AttackCount
         {
@@ -22,11 +23,9 @@ namespace MK.Boss.State
         
         public float AttackCoolTime
         {
-            get => _attackCoolTime;
-            set { _attackCoolTime = Mathf.Clamp(_attackCoolTime, 0, float.MaxValue); }
+            get => _attackCooldown;
+            set { _attackCooldown = Mathf.Clamp(_attackCooldown, 0, float.MaxValue); }
         }
-
-        private bool _isAttack = false;
 
         private void OnEnable()
         {
@@ -36,6 +35,7 @@ namespace MK.Boss.State
         public override void Enter()
         {
             base.Enter();
+            _isAttack = false;
             _owner.StartCoroutine(Attack());
         }
         
@@ -46,18 +46,20 @@ namespace MK.Boss.State
                 _owner.StateMachine.ChangeState(StateEnum.Idle);
             }
         }
-
+        
         public override void Exit()
         {
+            _isAttack = false;
             base.Exit();
         }
-
+        
         private IEnumerator Attack()
         {
             for (int i = 0; i < _attackCount; ++i)
             {
+                // TODO : 공격 범위 생성
                 // TODO : 공격 생성
-                yield return new WaitForSeconds(_attackCoolTime);
+                yield return new WaitForSeconds(_attackCooldown);
             }
 
             _isAttack = true;
