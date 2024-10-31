@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[CreateAssetMenu(menuName = "SO/InputReaderSO")]
 public class InputReaderSO : ScriptableObject, BaseInput.IPlayerActions
 {
     private BaseInput _baseInput;
@@ -44,17 +45,20 @@ public class InputReaderSO : ScriptableObject, BaseInput.IPlayerActions
 
     public void OnMouseRightClick(InputAction.CallbackContext context)
     {
-
+        if (context.started)
+            MouseRightClickEvent?.Invoke();
     }
 
     public void OnMouseLeftClick(InputAction.CallbackContext context)
     {
-        
+        if (context.started)
+            MouseLeftClickEvent?.Invoke();
     }
 
     public void OnMouseMiddleClick(InputAction.CallbackContext context)
     {
-        
+        if (context.started)
+            MouseMiddleClickEvent?.Invoke();
     }
 
     public void OnMousePress(InputAction.CallbackContext context)
