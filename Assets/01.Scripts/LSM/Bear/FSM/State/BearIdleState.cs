@@ -11,7 +11,18 @@ public class BearIdleState : IdleState
     private float _currentDelayTime;
     public PlayerAttackChoicePanel attackChoicePanel;
 
-    private int _patternCnt;
+    private int _patternCnt = 0;
+    private bool _isOpenSelect;
+    public int patternEvasionCnt;
+
+    public override void Initialize(StateMachine stateMachine, Agent owner, string animBoolName)
+    {
+        base.Initialize(stateMachine, owner, animBoolName);
+        attackChoicePanel  = FindObjectOfType<PlayerAttackChoicePanel>();
+        attackChoicePanel.gameObject.SetActive(false);
+        _patternCnt = 0;
+        _isOpenSelect = false;
+    }
 
     public override void Enter()
     {
@@ -19,9 +30,9 @@ public class BearIdleState : IdleState
         pattern = Random.Range((int)StateEnum.Pattern1, (int)StateEnum.Pattern1 + _owner.patterns.Count);
         //pattern = Random.Range((int)StateEnum.Pattern1, 2);
         _owner.mainVisual.SetActive(false);
-        _patternCnt++;
-        if(_patternCnt >= 10)
+        if(_patternCnt >= patternEvasionCnt)
         {
+            _isOpenSelect = true;
             _patternCnt = 0;
             attackChoicePanel.Open();
         }
@@ -31,15 +42,22 @@ public class BearIdleState : IdleState
     public override void UpdateState()
     {
         base.UpdateState();
-        _currentDelayTime += Time.deltaTime;
-        if (_currentDelayTime >= patternDelayTime)
+        if(!_isOpenSelect)
         {
-            _stateMachine.ChangeState((StateEnum)pattern);
-            _currentDelayTime = 0;
+            _currentDelayTime += Time.deltaTime;
+            if (_currentDelayTime >= patternDelayTime)
+            {
+                _stateMachine.ChangeState((StateEnum)pattern);
+                _currentDelayTime = 0;
+            }
         }
     }
     public override void Exit()
     {
+        _patternCnt++;
+
+        Debug.Log(_patternCnt);
+
         base.Exit();
     }
 }

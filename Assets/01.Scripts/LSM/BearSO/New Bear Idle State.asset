@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateEnum: 0
   patternDelayTime: 0.5
+  attackChoicePanel: {fileID: 0}
+  patternEvasionCnt: 2

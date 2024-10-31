@@ -21,6 +21,8 @@ public class PlayerAttackChoiceItem : MonoBehaviour, IPointerClickHandler, IPoin
     
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log(1);
+
         int random = Random.Range(0, 100);
         if (random < _attackChoiceSO.percentage)
         {
