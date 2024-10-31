@@ -51,6 +51,10 @@ public class BearIdleState : IdleState
                 _currentDelayTime = 0;
             }
         }
+        if(!attackChoicePanel.gameObject.activeSelf)
+        {
+            _isOpenSelect = false;
+        }
     }
     public override void Exit()
     {
