@@ -53,7 +53,7 @@ public class Orca_p_1 : OState
         sign.position = new Vector2(orcaVisual.position.x, sign.position.y);
         
 
-        if (body.level <= 2)
+        if (body.level >= 2)
         {
             int xPos2 = Random.Range(-750, 751);
             orcaVisual2.localPosition = new Vector2(xPos2, -680);
@@ -72,7 +72,7 @@ public class Orca_p_1 : OState
             orcaVisual.position.y), Random.Range(30, 40), 1, timer)
             .OnStart(()=>orcaVisual.DORotate(new Vector3(0, 0, reflectionDir ? 168 : 12), timer - 0.5f));
 
-        if(body.level <= 2)
+        if(body.level >= 2)
         {
             timer = Random.Range(1.5f, 1.9f);
             orcaVisual2.DOJump(new Vector3(orcaVisual2.position.x + Random.Range(30, 60) * (reflectionDir2 ? -1 : 1),
