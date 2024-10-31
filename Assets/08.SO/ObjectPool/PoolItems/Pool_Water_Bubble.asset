@@ -15,5 +15,5 @@ MonoBehaviour:
   enumName: Water_Bubble
   poolingName: wb
   description: 
-  poolCount: 3
+  poolCount: 2
   prefabObject: {fileID: 8048053522315072803, guid: 0be2680bba293e24280a81984b9d1eb1, type: 3}
