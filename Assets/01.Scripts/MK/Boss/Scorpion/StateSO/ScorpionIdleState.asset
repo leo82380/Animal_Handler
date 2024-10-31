@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019d10f0d3a7ea148a9b401c59c72252, type: 3}
-  m_Name: TailState
+  m_Script: {fileID: 11500000, guid: 44b7d3493e42e04478007ee426ef8152, type: 3}
+  m_Name: ScorpionIdleState
   m_EditorClassIdentifier: 
-  StateEnum: 4
-  <PatternProbability>k__BackingField: 20
-  _attackCount: 3
-  _attackCoolTime: 0.3
+  StateEnum: 0
+  _attackCooldown: 3

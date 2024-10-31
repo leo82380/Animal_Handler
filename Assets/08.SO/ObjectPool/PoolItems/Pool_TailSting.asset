@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019d10f0d3a7ea148a9b401c59c72252, type: 3}
-  m_Name: TailState
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_TailSting
   m_EditorClassIdentifier: 
-  StateEnum: 4
-  <PatternProbability>k__BackingField: 20
-  _attackCount: 3
-  _attackCoolTime: 0.3
+  enumName: TailSting
+  poolingName: TailSting
+  description: "\uAF2C\uB9AC \uCC0C\uB974\uAE30 \uACF5\uACA9"
+  poolCount: 20
+  prefabObject: {fileID: 0}

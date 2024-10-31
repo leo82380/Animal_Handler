@@ -6,7 +6,7 @@ namespace MK.Boss
 {
     public class Scorpion : Agent
     {
-        [SerializeField] private PoolingManager _poolManager;
+        public List<Transform> attackLoadPositionList;
         
         public StateEnum RandomPattern()
         {
@@ -16,22 +16,26 @@ namespace MK.Boss
 
             for (int i = 0; i < _states.Count; ++i)
             {
-                PatternState pattern = _states[i] as PatternState;
-                IPatternProbability probability = pattern as IPatternProbability;
-                randomMax += probability.PatternProbability;
+                if (_states[i] is PatternState pattern)
+                {
+                    IPatternProbability probability = pattern as IPatternProbability;
+                    randomMax += probability.PatternProbability;
+                }
             }
             
             randomValue = Random.Range(0, randomMax);
 
             for (int i = 0; i < _states.Count; ++i)
             {
-                PatternState pattern = _states[i] as PatternState;
-                IPatternProbability probability = pattern as IPatternProbability;
-
-                cumulative += probability.PatternProbability;
-                if (randomValue <= cumulative)
+                if (_states[i] is PatternState pattern)
                 {
-                    return pattern.StateEnum;
+                    IPatternProbability probability = pattern as IPatternProbability;
+                    cumulative += probability.PatternProbability;
+                    
+                    if (randomValue <= cumulative)
+                    {
+                        return pattern.StateEnum;
+                    }
                 }
             }
             

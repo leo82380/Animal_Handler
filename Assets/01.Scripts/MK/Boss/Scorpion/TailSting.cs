@@ -7,7 +7,7 @@ namespace MK.Boss.Pattern
     {
         # region PoolInfo
         
-        public PoolingType type { get; set; }
+        [field: SerializeField] public PoolingType type { get; set; }
         public GameObject ObjectPrefab { get => gameObject; }
         
         # endregion
@@ -18,7 +18,7 @@ namespace MK.Boss.Pattern
         private Vector2 Bottom;
         public void ResetItem()
         {
-            // TODO : Reset
+            
         }
 
         private void OnEnable()
@@ -26,7 +26,7 @@ namespace MK.Boss.Pattern
             SetScreenPosition();
             
             // TODO : 화면 밖으로 안 벗어나게
-        }
+        } 
 
         private void SetScreenPosition()
         {
@@ -35,6 +35,11 @@ namespace MK.Boss.Pattern
             Left = -Right;
             Top = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width*0.5f, Screen.height));
             Bottom = -Top;
+        }
+        
+        public void RandomAttackPostion()
+        {
+            // TODO : 공격 위치 랜덤
         }
     }
 }
