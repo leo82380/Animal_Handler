@@ -52,7 +52,6 @@ public class Orca_p_5 : OState
         orca_slave_1.DOMove(orca_slave_1.position + orca_slave_1.right * -1 * 150, 1);
         orca_slave_2.DOMove(orca_slave_2.position + orca_slave_2.right * 150, 1);
 
-        yield return null;
-        body.StateReset();
+        StartCoroutine(body.StateReset());
     }
 }

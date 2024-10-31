@@ -24,8 +24,8 @@ public class Orca_p_2 : OState
         yield return new WaitForSeconds(1f);
 
         wave.DOLocalMove(new Vector3(leftStart ? 1350 : -1350, 1100), 1.8f);
-        
 
-        body.StateReset();
+
+        StartCoroutine(body.StateReset());
     }
 }

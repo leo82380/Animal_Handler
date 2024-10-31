@@ -28,6 +28,6 @@ public class Orca_p_3 : OState
 
         yield return null;
 
-        body.StateReset();
+        StartCoroutine(body.StateReset());
     }
 }

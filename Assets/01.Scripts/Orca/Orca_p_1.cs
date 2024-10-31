@@ -81,10 +81,10 @@ public class Orca_p_1 : OState
                 orcaVisual2.position.y), Random.Range(30, 40), 1, timer)
                 .OnStart(() => orcaVisual2.DORotate(new Vector3(0, 0, reflectionDir2 ? 55 : -55), timer - 0.5f));
         }
-        
 
 
 
-        body.StateReset();
+
+        StartCoroutine(body.StateReset());
     }
 }
