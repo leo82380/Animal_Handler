@@ -20,10 +20,10 @@ public class Orca_p_3 : OState
             ObjectPrefab.GetComponent<Tonado>();
             obj.transform.parent = sea;
             obj.transform.localScale = new Vector3(1, 0, 1);
-            obj.transform.localPosition = new Vector3(Random.Range(-930, 930), 950);
+            obj.transform.localPosition = new Vector3(Random.Range(-930, 930), 650);
             obj.gameObject.SetActive(true);
 
-            obj.transform.DOScaleY(15, 1.3f).OnComplete(() => StartCoroutine(obj.Duration(3f)));
+            obj.transform.DOScaleY(20, 1.3f).OnComplete(() => StartCoroutine(obj.Duration(3f)));
         }
 
         yield return null;

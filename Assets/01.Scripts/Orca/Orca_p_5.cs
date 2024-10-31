@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Orca_p_5 : OState
 {
@@ -31,23 +32,25 @@ public class Orca_p_5 : OState
         orca_slave_1.gameObject.SetActive(true);
         orca_slave_2.gameObject.SetActive(true);
 
-        float t = Time.deltaTime, angle;
+        float t = Time.deltaTime, angle, curTime = Time.deltaTime;
 
-        while (t + 2 >= Time.deltaTime)
+        while (t + 2 >= curTime)
         {
             yield return null;
             angle = Mathf.Atan2(pMove.MousePosition.y - orca_slave_1.position.y, 
                 pMove.MousePosition.x - orca_slave_1.position.x) * Mathf.Rad2Deg;
-            orca_slave_1.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            orca_slave_1.rotation = Quaternion.AngleAxis(angle + 170, Vector3.forward);
+            Debug.Log(angle + " :: " + orca_slave_1.rotation);
             angle = Mathf.Atan2(pMove.MousePosition.y - orca_slave_2.position.y,
                 pMove.MousePosition.x - orca_slave_2.position.x) * Mathf.Rad2Deg;
-            orca_slave_2.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-
-            Debug.Log(pMove.MousePosition);
+            orca_slave_2.rotation = Quaternion.AngleAxis(angle + 10, Vector3.forward);
+            curTime += Time.deltaTime;
         }
 
         Debug.Log("fin");
-        
+
+        orca_slave_1.DOMove(orca_slave_1.position + orca_slave_1.right * -1 * 150, 1);
+        orca_slave_2.DOMove(orca_slave_2.position + orca_slave_2.right * 150, 1);
 
         yield return null;
         body.StateReset();

@@ -39,7 +39,6 @@ public class Orca : MonoBehaviour
 
         int num = SelectInt();
         Debug.Log(num);
-        num = 4 + (filedIsWater ? 1 : 0);
         StartCoroutine(stateList[num].UseSkill());
     }
 }
