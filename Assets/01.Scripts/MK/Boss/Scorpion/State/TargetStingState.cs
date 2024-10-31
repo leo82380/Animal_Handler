@@ -9,6 +9,7 @@ namespace MK.Boss.State
         [field: SerializeField] public int PatternProbability { get; set; }
         
         [SerializeField] private int _attackCount;
+        [SerializeField] private float _attackLoadCooldown;
         [SerializeField] private float _attackCooldown;
         [SerializeField] private float _radius;
 
@@ -43,11 +44,20 @@ namespace MK.Boss.State
         {
             for (int i = 0; i < _attackCount; ++i)
             {
-                // TODO : Attack
                 // TODO : AttackLoad 원으로 바꾸기
                 AttackLoad attackLoad = PoolingManager.Instnace.Pop(PoolingType.TailSwing_AttackLoad) as AttackLoad;
                 attackLoad.transform.position = _player.transform.position;
                 
+                yield return new WaitForSeconds(_attackLoadCooldown);
+                
+                // TODO : Attack 생성
+                
+                // 이거는 아니고 이렇게 하면 공격 범위 보여줌 
+                // 그리고 기다림
+                // 그리고 공격
+                // 바로 공격 범위
+                // 공격과 공격 즉 공격 범위와 공격 사이에 시간이 존재하지 않음 이걸 원하지 않는거면 바꿔야 함
+                // 일단 땜빵 하겠음
                 yield return new WaitForSeconds(_attackCooldown);
             }
 
