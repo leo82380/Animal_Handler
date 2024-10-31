@@ -77,7 +77,7 @@ public class MouseEventManager : MonoBehaviour
     private IEnumerator Shake()
     {
         float percent = 0;
-        while (percent < 1000)
+        while (percent < 10000)
         {
             var beforePosition = _inputReaderSO.MousePosition;
             yield return null;
