@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0f71b1304eddbd47b73833d86722ee3, type: 3}
-  m_Name: table
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_Water_Bubble
   m_EditorClassIdentifier: 
-  datas:
-  - {fileID: 11400000, guid: 1faa8cbc89e73fb4e8c5f5086f747f1c, type: 2}
+  enumName: Water_Bubble
+  poolingName: waw
+  description: 
+  poolCount: 3
+  prefabObject: {fileID: 8048053522315072803, guid: 0be2680bba293e24280a81984b9d1eb1, type: 3}
