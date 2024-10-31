@@ -9,9 +9,8 @@ public class BearIdleState : IdleState
         base.Enter();
         int c = Random.Range((int)StateEnum.Pattern1, (int)StateEnum.Pattern1 + _owner.patterns.Count);
         
-        Debug.Log((StateEnum)c);
-       
-        _stateMachine.ChangeState((StateEnum)c);
+        //_stateMachine.ChangeState((StateEnum)c);
+        _stateMachine.ChangeState(StateEnum.Pattern2);
     }
     public override void UpdateState()
     {

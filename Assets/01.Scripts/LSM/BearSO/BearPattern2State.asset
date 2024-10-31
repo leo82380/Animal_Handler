@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: BearPattern2State
   m_EditorClassIdentifier: 
   StateEnum: 5
+  fullScrean: {fileID: 2291348139041909352, guid: 424799608f7334c24bf367e4bbfa7f9a, type: 2}
+  mat: {fileID: 2100000, guid: 8e7a0b837484a824a9dcafd735400cf0, type: 2}

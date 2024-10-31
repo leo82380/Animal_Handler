@@ -10,6 +10,8 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     
     private int _clickCount;
 
+    private Coroutine _stopCorotine;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -73,13 +75,21 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
     #region Mouse Shake
     public void StartShake()
     {
-        StartCoroutine(Shake());
+        _stopCorotine = StartCoroutine(Shake());
+    }
+
+    public void StopShake()
+    {
+        if (_stopCorotine != null)
+        {
+            StopCoroutine(_stopCorotine);
+        }
     }
 
     private IEnumerator Shake()
     {
         float percent = 0;
-        while (percent < 10000)
+        while (percent < 100000)
         {
             var beforePosition = _inputReaderSO.MousePosition;
             yield return null;
@@ -87,7 +97,6 @@ public class MouseEventManager : MonoSingleton<MouseEventManager>
             var distance = Vector2.Distance(beforePosition, afterPosition);
             percent += distance;
             OnShake?.Invoke(percent);
-            Debug.Log(percent);
         }
         
         Debug.Log("Shake End");
