@@ -13,6 +13,8 @@ public class BearPattern4State : Pattern4State
     public override void UpdateState()
     {
         base.UpdateState();
+        if (_endTriggerCalled)
+            _stateMachine.ChangeState(StateEnum.Idle);
 
     }
     public override void Exit()

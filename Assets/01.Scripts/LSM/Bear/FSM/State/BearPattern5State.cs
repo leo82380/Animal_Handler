@@ -13,6 +13,8 @@ public class BearPattern5State : Pattern5State
     public override void UpdateState()
     {
         base.UpdateState();
+        if (_endTriggerCalled)
+            _stateMachine.ChangeState(StateEnum.Idle);
 
     }
     public override void Exit()

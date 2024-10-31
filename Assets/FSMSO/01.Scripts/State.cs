@@ -31,4 +31,11 @@ public abstract class State : ScriptableObject
     {
         _owner.AnimatorCompo.SetBool(_animBoolHash, false);
     }
+
+    public virtual void AanimationEnd()
+    {
+        _endTriggerCalled = true;
+    }
+
+
 }
