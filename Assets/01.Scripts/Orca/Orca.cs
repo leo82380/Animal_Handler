@@ -15,31 +15,27 @@ public class Orca : MonoBehaviour
         stateList = GetComponentsInChildren<OState>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(StateReset());
+    }
+
     private int SelectInt()
     {
         return Random.Range(1, 4 + (level == 3 ? 1 : 0)) + (filedIsWater ? 1 : 0);
     }
 
-    private void Update()
+    public IEnumerator StateReset()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            StartCoroutine(UseSkill(0));
-        }
+        yield return new WaitForSeconds(7 - level + Random.Range(1, 5));
+
+        UseSkill();
     }
 
-    public void StateReset()
+    public void UseSkill()
     {
-
-    }
-
-    public IEnumerator UseSkill(float _delay)
-    {
-        yield return new WaitForSeconds(_delay);
-
         int num = SelectInt();
         Debug.Log(num);
-        num = 4 + (filedIsWater ? 1 : 0);
         StartCoroutine(stateList[num].UseSkill());
     }
 }

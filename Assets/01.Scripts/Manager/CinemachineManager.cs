@@ -6,7 +6,7 @@ using MKDir;
 namespace Manager.Cinemachine
 {
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    public class CinemachineManager : MonoBehaviour
+    public class CinemachineManager : MonoSingleton<CinemachineManager>
     {
 
         [SerializeField] private CinemachineImpulseSource _impulseSource;

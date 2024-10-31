@@ -19,6 +19,6 @@ public class Orca_p_4 : OState
         }
 
         yield return null;
-        body.StateReset();
+        StartCoroutine(body.StateReset());
     }
 }
