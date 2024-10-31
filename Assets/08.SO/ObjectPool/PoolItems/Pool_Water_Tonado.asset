@@ -15,5 +15,5 @@ MonoBehaviour:
   enumName: Water_Tonado
   poolingName: wt
   description: 
-  poolCount: 2
+  poolCount: 3
   prefabObject: {fileID: 6739579014347320215, guid: ed903ae73edd90340ba9a236bd053b8c, type: 3}
