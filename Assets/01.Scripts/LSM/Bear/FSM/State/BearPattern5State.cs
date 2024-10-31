@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "State/Bear/Pattern5")]
-public class BearPattern5State : State
+public class BearPattern5State : Pattern5State
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Enter()
     {
-        
-    }
+        base.Enter();
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override void UpdateState()
     {
-        
+        base.UpdateState();
+
+    }
+    public override void Exit()
+    {
+        base.Exit();
     }
 }
