@@ -47,6 +47,12 @@ namespace MK.Boss.State
             }
         }
         
+        public override void Exit()
+        {
+            _isAttack = false;
+            base.Exit();
+        }
+        
         private IEnumerator Attack()
         {
             for (int i = 0; i < _attackCount; ++i)

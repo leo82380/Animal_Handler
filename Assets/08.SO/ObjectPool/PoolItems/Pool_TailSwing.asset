@@ -16,4 +16,4 @@ MonoBehaviour:
   poolingName: TailSwing
   description: "\uAF2C\uB9AC \uD6C4\uB9AC\uAE30"
   poolCount: 3
-  prefabObject: {fileID: 0}
+  prefabObject: {fileID: 5691978189922634779, guid: a51328fcc18259445b77600e34724eba, type: 3}

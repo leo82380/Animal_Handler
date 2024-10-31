@@ -41,6 +41,12 @@ namespace MK.Boss.State
             }
         }
         
+        public override void Exit()
+        {
+            _isAttack = false;
+            base.Exit();
+        }
+        
         private IEnumerator Attack()
         {
             AttackLoad attackLoad = PoolingManager.Instnace.Pop(PoolingType.TailSwing_AttackLoad) as AttackLoad;
@@ -51,6 +57,8 @@ namespace MK.Boss.State
             // TODO : Pooling으로 공격 프리팹 생성
             // TODO : 닷트윈 공격 Lerp
             // TODO : 닷트윈 시퀸스 사용해서 트윈 끝나고 isAttack = true; 로 Idle 스테이트로
+
+            _isAttack = true;
         }
     }
 }

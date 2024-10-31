@@ -256,10 +256,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5828abe4c306df46af5450358b939cf, type: 2}
   - {fileID: 11400000, guid: ba75f574ec25f374b82756a0be0ae17d, type: 2}
   - {fileID: 11400000, guid: 2b74e16785ee2eb48a40a2395e81036e, type: 2}
-  attackLoadPositionList:
-  - {fileID: 1893372751211880590}
-  - {fileID: 6356521727975517023}
-  - {fileID: 3141788475553938005}
+  attackLoadPositionList: []
 --- !u!95 &773427906
 Animator:
   serializedVersion: 5
