@@ -9,7 +9,8 @@ public class BearPattern6State : Pattern6State
     public override void Enter()
     {
         base.Enter();
-
+        int c = Random.Range(0, _owner.patterns["Pattern1"].Count);
+        _owner.AnimatorCompo.SetInteger("Rand", c);
     }
     public override void UpdateState()
     {

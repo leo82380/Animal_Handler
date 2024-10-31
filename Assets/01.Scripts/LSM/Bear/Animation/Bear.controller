@@ -61,7 +61,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern1
+    m_ConditionEvent: BearPattern1State
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: Rand
@@ -89,7 +89,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern1
+    m_ConditionEvent: BearPattern1State
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: Rand
@@ -117,7 +117,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern4
+    m_ConditionEvent: New Bear Pattern 4 State
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2211984526386716276}
@@ -168,7 +168,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern2
+    m_ConditionEvent: BearPattern2State
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1346240733634671789}
@@ -262,7 +262,7 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5546568574976534910}
-    m_Position: {x: 400, y: 650, z: 0}
+    m_Position: {x: 390, y: 620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3198178642080379514}
     m_Position: {x: 400, y: 190, z: 0}
@@ -300,7 +300,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Idle
+    m_ConditionEvent: New Bear Idle State
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8419345314781536240}
@@ -325,43 +325,43 @@ AnimatorController:
   m_Name: Bear
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Idle
+  - m_Name: New Bear Idle State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern1
+  - m_Name: BearPattern1State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern2
+  - m_Name: BearPattern2State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern3
+  - m_Name: New Bear Pattern 3 State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern4
+  - m_Name: New Bear Pattern 4 State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern5
+  - m_Name: New Bear Pattern 5 State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Pattern6
+  - m_Name: New Bear Pattern 6 State
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -395,7 +395,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern6
+    m_ConditionEvent: New Bear Pattern 6 State
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: Rand
@@ -423,7 +423,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern3
+    m_ConditionEvent: New Bear Pattern 3 State
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8449259858040863096}
@@ -500,7 +500,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern5
+    m_ConditionEvent: New Bear Pattern 5 State
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6738792380449184212}
@@ -551,7 +551,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pattern6
+    m_ConditionEvent: New Bear Pattern 6 State
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: Rand

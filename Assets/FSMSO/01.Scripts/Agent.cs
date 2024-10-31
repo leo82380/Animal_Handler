@@ -54,8 +54,8 @@ public class Agent : MonoBehaviour
         foreach (var state in _states)
         {
             state.Initialize(StateMachine, this, state.name);
-            Debug.Log("State Name: " + state.name);
             StateMachine.AddState(state.StateEnum, state);
+
         }
         
         StateMachine.Initialize(StateEnum.Idle, this);
