@@ -18,15 +18,19 @@ public class ToxicFlooringAttacker : MonoBehaviour
 
     private void Update()
     {
-        if (_isSave == false)
+        if (_isDam == false)
         {
-            Debug.Log("맞는 중");
-            
-            if(_player.TryGetComponent<IDamageable>(out IDamageable health))
+            if (_isSave == false)
             {
-                // TODO : 여기 도트 딜
+                Debug.Log("맞는 중");
                 
-                MouseWinAPIManager.SetMouseSpeed(1);
+                if(_player.TryGetComponent<IDamageable>(out IDamageable health))
+                {
+                    health.TakeDamage(1);
+                    
+                    _player.MouseSloow();
+                    _isDam = true;
+                }
             }
         }
     }

@@ -16,19 +16,27 @@ public class CommandManager : MonoBehaviour
     [SerializeField] private List<string> _commandList;
     
     private int _currentCommandIndex = 0;
+    private int _isSuccessCount = 0;
+
+    public Transform MouseCommand;
 
     public List<Image> imageList = new List<Image>();
 
-    private bool _isCorrect;
+    private bool _isCorrect = false;
+
+    public event Action SuccesfullCommandEvent;
     
     private void Awake()
     {
         _commandList = new List<string>();
         _currentCommandIndex = 0;
+        MouseCommand.gameObject.SetActive(false);
         
         _inputReaderSO.MouseLeftClickEvent += OnMouseLeftClick;
         _inputReaderSO.MouseRightClickEvent += OnMouseRightClick;
         _inputReaderSO.MouseMiddleClickEvent += OnMouseMiddleClick;
+
+        RandomCommandSetting(5);
     }
     
     private void OnDestroy()
@@ -45,6 +53,7 @@ public class CommandManager : MonoBehaviour
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Middle");
+            _isSuccessCount++;
         }
         else
         {
@@ -53,6 +62,12 @@ public class CommandManager : MonoBehaviour
         }
 
         _currentCommandIndex++;
+        
+        if (_isSuccessCount >= 5)
+        {
+            MouseCommand.gameObject.SetActive(false);
+            SuccesfullCommandEvent?.Invoke();
+        }
     }
 
     private void OnMouseRightClick()
@@ -62,6 +77,7 @@ public class CommandManager : MonoBehaviour
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Right");
+            _isSuccessCount++;
         }
         else
         {
@@ -70,6 +86,12 @@ public class CommandManager : MonoBehaviour
         }
         
         _currentCommandIndex++;
+        
+        if (_isSuccessCount >= 5)
+        {
+            MouseCommand.gameObject.SetActive(false);
+            SuccesfullCommandEvent?.Invoke();
+        }
     }
 
     private void OnMouseLeftClick()
@@ -79,6 +101,7 @@ public class CommandManager : MonoBehaviour
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Left");
+            _isSuccessCount++;
         }
         else
         {
@@ -87,14 +110,24 @@ public class CommandManager : MonoBehaviour
         }
         
         _currentCommandIndex++;
+
+        if (_isSuccessCount >= 5)
+        {
+            MouseCommand.gameObject.SetActive(false);
+            SuccesfullCommandEvent?.Invoke();
+        }
     }
     
     public void RandomCommandSetting(int count)
     {
+        MouseCommand.gameObject.SetActive(true);
+        _currentCommandIndex = 0;
+        _isSuccessCount = 0;
         _commandList.Clear();
         for (int i = 0; i < count; i++)
         {
             string cmd = RandomCommand();
+            Debug.Log(cmd);
             _commandList.Add(cmd);
             imageList[i].sprite = _commandSample[cmd];
         }

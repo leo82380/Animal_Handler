@@ -154,13 +154,14 @@ MonoBehaviour:
   _inputReaderSO: {fileID: 11400000, guid: 1ce8f04ade5b0904b8c8bbd921609bb6, type: 2}
   _commandSample:
     _serializedList:
-    - Key: Left
-      Value: {fileID: -2424149310815096510, guid: f111d039588b9cd48affa970f80e1b8e, type: 3}
-    - Key: Right
-      Value: {fileID: 1348501524473164781, guid: e9e272ea3f7a0e2479f3c3cd8c47acd0, type: 3}
     - Key: Middle
       Value: {fileID: -4693212770171344365, guid: 433500d3bc5eb5849ae6e7da517275d0, type: 3}
+    - Key: Right
+      Value: {fileID: 1348501524473164781, guid: e9e272ea3f7a0e2479f3c3cd8c47acd0, type: 3}
+    - Key: Left
+      Value: {fileID: -2424149310815096510, guid: f111d039588b9cd48affa970f80e1b8e, type: 3}
   _commandList: []
+  MouseCommand: {fileID: 859373279}
   imageList:
   - {fileID: 574218179}
   - {fileID: 771602715}
@@ -643,13 +644,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patternsStruct: []
-  _mainVisual: {fileID: 579127989}
+  mainVisual: {fileID: 579127989}
   _states:
   - {fileID: 11400000, guid: c5828abe4c306df46af5450358b939cf, type: 2}
   - {fileID: 11400000, guid: ba75f574ec25f374b82756a0be0ae17d, type: 2}
   - {fileID: 11400000, guid: 2b74e16785ee2eb48a40a2395e81036e, type: 2}
   - {fileID: 11400000, guid: 4f962d95907c9a1418d26398d7ba2060, type: 2}
   - {fileID: 11400000, guid: bddec62c432f4d8448b9d3b6f2f5e1bc, type: 2}
+  - {fileID: 11400000, guid: c134e72f2fd5de34da288f0c6fe28b64, type: 2}
   attackLoadPositionList:
   - {fileID: 1893372751211880590}
   - {fileID: 6356521727975517023}
@@ -665,7 +667,7 @@ GameObject:
   - component: {fileID: 859373279}
   - component: {fileID: 859373280}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: CommandMouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -873,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _currentHealth: 0
 --- !u!114 &1355970351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd9434643846ccb7c42b58f2e9764f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _breakEffect: {fileID: 0}
   _health: {fileID: 1355970350}
   _cursorSprites:
   - {fileID: 2800000, guid: efff7d0772090824bb17d7e2fd1f1d39, type: 3}
@@ -904,6 +908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMove: {fileID: 1355970353}
+  _mouseSloowDuration: 3
 --- !u!114 &1355970353
 MonoBehaviour:
   m_ObjectHideFlags: 0

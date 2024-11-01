@@ -37,8 +37,7 @@ namespace MK.Boss.Pattern
         {
 
         }
-        
-        private void RandomAttackPostion()
+        public void RandomAttackPostion()
         {
             int x = Mathf.Clamp((int)Random.Range(Left.x, Right.x), 
                 (int)(Left.x + transform.localScale.x / 2),

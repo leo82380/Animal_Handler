@@ -40,6 +40,7 @@ namespace MK.Boss.State
         private IEnumerator Attack()
         {
             ToxicFlooringLoad toxicLoad = PoolingManager.Instnace.Pop(PoolingType.ToxicFlooringLoad) as ToxicFlooringLoad;
+            toxicLoad.RandomAttackPostion();
             
             yield return new WaitForSeconds(_attackLoadTime);
             
