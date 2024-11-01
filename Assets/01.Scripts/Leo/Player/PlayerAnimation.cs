@@ -31,6 +31,7 @@ public class PlayerAnimation : MonoBehaviour
     private void OnDestroy()
     {
         _health.OnHealthChange -= OnHealthChange;
+        _health.OnDie -= OnDie;
     }
 
     private void OnHealthChange(int obj)
@@ -45,10 +46,5 @@ public class PlayerAnimation : MonoBehaviour
     private void OnDie()
     {
         TileCanvas.SetActive(true);
-    }
-
-    private void OnDestroy()
-    {
-        _health.OnDie -= OnDie;
     }
 }

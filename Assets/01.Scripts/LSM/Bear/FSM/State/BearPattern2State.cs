@@ -35,6 +35,11 @@ public class BearPattern2State : Pattern2State
         base.Exit();
     }
 
+    private void OnDestroy()
+    {
+        fullScrean.SetActive(false);
+    }
+
     private void ShakeHandleEvent(float obj,float time)
     {
         if(mat != null && mat.GetFloat("_Power") <= 1)

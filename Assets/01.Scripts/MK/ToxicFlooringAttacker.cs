@@ -26,7 +26,7 @@ public class ToxicFlooringAttacker : MonoBehaviour
                 
                 if(_player.TryGetComponent<IDamageable>(out IDamageable health))
                 {
-                    health.TakeDamage(1);
+                    health.TakeDamage(0);
                     
                     _player.MouseSloow();
                     _isDam = true;
