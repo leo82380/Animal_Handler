@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TargetStingState
   m_EditorClassIdentifier: 
   StateEnum: 7
-  <PatternProbability>k__BackingField: 1
+  <PatternProbability>k__BackingField: 25
   _attackCount: 5
   _attackLoadTime: 0.42
   _attackCooldown: 0.47

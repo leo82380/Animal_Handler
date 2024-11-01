@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ToxicExplosionState
   m_EditorClassIdentifier: 
   StateEnum: 8
-  <PatternProbability>k__BackingField: 1
+  <PatternProbability>k__BackingField: 20
   _attackLoadTime: 0.7
   _attackCooldown: 0.3
   _radius: 0

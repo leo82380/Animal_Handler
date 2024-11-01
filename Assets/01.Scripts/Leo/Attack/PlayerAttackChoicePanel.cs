@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
 {
-    [SerializeField] private AnimalGet _animalGet;
+    [SerializeField] internal AnimalGet _animalGet;
     [SerializeField] private List<PlayerAttackChoiceItem> _playerAttackChoiceItems;
     [SerializeField] private int nextStage;
 
