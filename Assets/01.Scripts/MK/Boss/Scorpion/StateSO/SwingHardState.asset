@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SwingHardState
   m_EditorClassIdentifier: 
   StateEnum: 9
-  <PatternProbability>k__BackingField: 70
+  <PatternProbability>k__BackingField: 10
   _attackChargeTime: 6

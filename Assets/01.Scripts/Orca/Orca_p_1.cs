@@ -44,7 +44,7 @@ public class Orca_p_1 : OState
     public override IEnumerator UseSkill()
     {
         int xPos = Random.Range(-750, 751);
-        orcaVisual.localPosition = new Vector2(xPos, -800);
+        orcaVisual.localPosition = new Vector2(xPos, -830);
         reflectionDir = xPos > 0;
         orcaVisual.rotation = Quaternion.Euler(0, 0, 55 * (reflectionDir ? -1 : 1));
         orcaVisual.localScale = new Vector3(reflectionDir ? -1 : 1, 1, 1);
@@ -57,7 +57,7 @@ public class Orca_p_1 : OState
         if (body.level >= 2)
         {
             int xPos2 = Random.Range(-750, 751);
-            orcaVisual2.localPosition = new Vector2(xPos2, -800);
+            orcaVisual2.localPosition = new Vector2(xPos2, -830);
             reflectionDir2 = xPos2 > 0;
             orcaVisual2.rotation = Quaternion.Euler(0, 0, 55 * (reflectionDir2 ? -1 : 1));
             orcaVisual2.localScale = new Vector3(reflectionDir2 ? -1 : 1, 1, 1);

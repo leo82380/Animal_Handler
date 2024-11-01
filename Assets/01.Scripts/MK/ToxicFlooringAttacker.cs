@@ -35,6 +35,15 @@ public class ToxicFlooringAttacker : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // 여기는 안전
+            _isSave = true;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
