@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
 {
-    [SerializeField] private AnimalGet _animalGet;
+    [SerializeField] internal AnimalGet _animalGet;
     [SerializeField] private List<PlayerAttackChoiceItem> _playerAttackChoiceItems;
     [SerializeField] private int nextStage;
 
@@ -43,6 +43,8 @@ public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
     public void Close()
     {
         transform.DOScaleY(0, 0.5f).OnComplete(() => gameObject.SetActive(false));
+        Orca or = FindObjectOfType<Orca>();
+        if (or != null) or.Start();
         //_animalGet.Percentage = 100;
     }
 }

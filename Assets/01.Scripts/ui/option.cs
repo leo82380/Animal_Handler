@@ -33,7 +33,7 @@ public class option : MonoBehaviour
 
     public void NextScene()
     {
-        SceneMove(mapString[stage++]);
+        SceneMove("PolarBear");
     }
 
     public void SceneMove(string _sceneName)

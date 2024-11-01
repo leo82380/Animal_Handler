@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b5fd549d244d748089ac7a406927ca, type: 3}
   m_Name: Rope
   m_EditorClassIdentifier: 
+  setPercentage: 80
+  setUpgrade: 35
   percentage: 70
-  UpgradeValue: 21
+  UpgradeValue: 22
