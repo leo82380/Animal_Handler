@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b5fd549d244d748089ac7a406927ca, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  percentage: 50
-  UpgradeValue: 10
+  percentage: 33
+  UpgradeValue: 40

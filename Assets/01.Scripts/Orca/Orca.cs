@@ -5,6 +5,7 @@ using UnityEngine;
 public class Orca : MonoBehaviour
 {
     public OState[] stateList;
+    public PlayerAttackChoicePanel ap;
 
     [Range(1,4)]public int level = 1;
 
@@ -18,6 +19,16 @@ public class Orca : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StateReset());
+        StartCoroutine(PlayerAttack());
+    }
+
+    public IEnumerator PlayerAttack()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(3);
+        ap.Open();
+        yield return new WaitForSeconds(0.7f);
+        Time.timeScale = 0;
     }
 
     private int SelectInt()
@@ -35,6 +46,11 @@ public class Orca : MonoBehaviour
     public void UseSkill()
     {
         int num = SelectInt();
+
+        if(num == 4 && ap._animalGet.Percentage < 40)
+        {
+            num = 3;
+        }
         Debug.Log(num);
         StartCoroutine(stateList[num].UseSkill());
     }
