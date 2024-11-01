@@ -15,7 +15,7 @@ MonoBehaviour:
   StateEnum: 7
   <PatternProbability>k__BackingField: 25
   _attackCount: 5
-  _attackLoadTime: 0.42
-  _attackCooldown: 0.47
+  _attackLoadTime: 0.38
+  _attackCooldown: 0.42
   _radiusMin: 4
   _radiusMax: 7

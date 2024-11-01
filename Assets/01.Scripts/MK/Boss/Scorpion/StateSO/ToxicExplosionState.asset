@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateEnum: 8
   <PatternProbability>k__BackingField: 20
-  _attackLoadTime: 0.7
-  _attackCooldown: 0.3
+  _attackLoadTime: 1
+  _attackCooldown: 0.39
   _radius: 0
