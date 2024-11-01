@@ -16,6 +16,7 @@ public class SwingHard : MonoBehaviour, IPoolable
         _commandManager = FindObjectOfType<CommandManager>();
         _commandManager.SuccesfullCommandEvent += HandleCommand;
         _commandManager.RandomCommandSetting(5);
+        _isSuccess = false;
         StartCoroutine(Attack());
     }
 
@@ -31,6 +32,7 @@ public class SwingHard : MonoBehaviour, IPoolable
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(_duration);
+        
         if (_isSuccess == false)
             _player.GetComponent<Health>().TakeDamage(1);
         
