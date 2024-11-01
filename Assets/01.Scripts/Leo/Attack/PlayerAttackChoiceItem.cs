@@ -22,13 +22,11 @@ public class PlayerAttackChoiceItem : MonoBehaviour, IPointerClickHandler, IPoin
     public void OnPointerClick(PointerEventData eventData)
     {
 
-        Debug.Log(2);
         int random = Random.Range(0, 100);
         if (random < _attackChoiceSO.percentage)
         {
             _animalGet.Percentage += _attackChoiceSO.UpgradeValue;
         }
-        Debug.Log(1);
 
         _playerAttackChoicePanel.Close();
     }

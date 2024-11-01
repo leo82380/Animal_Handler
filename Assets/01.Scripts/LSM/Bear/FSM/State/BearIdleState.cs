@@ -60,8 +60,6 @@ public class BearIdleState : IdleState
     {
         _patternCnt++;
 
-        Debug.Log(_patternCnt);
-
         base.Exit();
     }
 }
