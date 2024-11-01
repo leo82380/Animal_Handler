@@ -9,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private Health _health;
     [SerializeField] private List<Texture2D> _cursorSprites;
 
+    public GameObject TileCanvas;
+
     private void Awake()
     {
         _health.OnDie += OnDie;
@@ -23,7 +25,12 @@ public class PlayerAnimation : MonoBehaviour
             _health.TakeDamage(1);
         }
     }
-    #endif
+#endif
+
+    private void OnDestroy()
+    {
+        _health.OnHealthChange -= OnHealthChange;
+    }
 
     private void OnHealthChange(int obj)
     {
@@ -36,6 +43,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnDie()
     {
-        SceneManager.LoadScene(0);
+        TileCanvas.SetActive(true);
     }
 }

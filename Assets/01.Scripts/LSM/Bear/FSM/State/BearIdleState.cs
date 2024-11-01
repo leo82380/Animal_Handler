@@ -34,6 +34,7 @@ public class BearIdleState : IdleState
         {
             _isOpenSelect = true;
             _patternCnt = 0;
+            _owner.mainVisual.SetActive(true);
             attackChoicePanel.Open();
         }
         //_stateMachine.ChangeState((StateEnum)c);

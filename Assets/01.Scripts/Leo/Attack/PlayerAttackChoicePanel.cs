@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
 {
-    [SerializeField] private AnimalGet _animalGet;
+    [SerializeField] internal AnimalGet _animalGet;
     [SerializeField] private List<PlayerAttackChoiceItem> _playerAttackChoiceItems;
     [SerializeField] private int nextStage;
+    public GameObject Clear;
 
     private void OnEnable()
     {
@@ -23,6 +24,10 @@ public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
     private void StageHandleEvent()
     {
         SceneManager.LoadScene(nextStage);
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            Clear.SetActive(true);
+        }
     }
 
     [ContextMenu("Open")]
