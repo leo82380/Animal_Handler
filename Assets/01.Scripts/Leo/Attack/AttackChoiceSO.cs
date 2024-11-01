@@ -8,7 +8,7 @@ public class AttackChoiceSO : ScriptableObject
     
     public void SetRandomGenerate()
     {
-        percentage = Random.Range(0, 100);
-        UpgradeValue = Random.Range(1, 10);
+        percentage = Random.Range(20, 100);
+        UpgradeValue = Random.Range(3, 20);
     }
 }

@@ -31,8 +31,8 @@ public class PlayerAttackChoicePanel : MonoBehaviour, IWindow
         _animalGet.Init();
         foreach (var playerAttackChoiceItem in _playerAttackChoiceItems)
         {
-            playerAttackChoiceItem.SetData();
             playerAttackChoiceItem.AttackChoiceSO.SetRandomGenerate();
+            playerAttackChoiceItem.SetData();
         }
 
         gameObject.SetActive(true);
