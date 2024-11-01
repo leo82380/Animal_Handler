@@ -6,8 +6,11 @@ public class Orca : MonoBehaviour
 {
     public OState[] stateList;
     public PlayerAttackChoicePanel ap;
+    public Collider2D he;
 
     [Range(1,4)]public int level = 1;
+
+    public bool canUseSkill = false;
 
     public bool filedIsWater = false;
 
@@ -16,19 +19,20 @@ public class Orca : MonoBehaviour
         stateList = GetComponentsInChildren<OState>();
     }
 
-    private void Start()
+    public void Start()
     {
-        StartCoroutine(StateReset());
         StartCoroutine(PlayerAttack());
+        StartCoroutine(StateReset());
     }
 
     public IEnumerator PlayerAttack()
     {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(3);
+        he.enabled = true;
+        canUseSkill = true;
+        yield return new WaitForSeconds(25);
+        he.enabled = false;
         ap.Open();
-        yield return new WaitForSeconds(0.7f);
-        Time.timeScale = 0;
+        canUseSkill = false;
     }
 
     private int SelectInt()
@@ -51,7 +55,8 @@ public class Orca : MonoBehaviour
         {
             num = 3;
         }
-        Debug.Log(num);
-        StartCoroutine(stateList[num].UseSkill());
+        Debug.Log(num + " / " + canUseSkill);
+        if(canUseSkill)
+            StartCoroutine(stateList[num].UseSkill());
     }
 }
