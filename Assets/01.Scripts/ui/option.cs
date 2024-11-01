@@ -18,13 +18,8 @@ public class option : MonoBehaviour
 
     private void Start()
     {
-        if(FindObjectsOfType<option>().Length == 1)
-        {
-            DontDestroyOnLoad(this);
-            DontDestroyOnLoad(optionUI);
-        }
-
-        
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(optionUI);
         optionUI.SetActive(false);
 
         for (int i = 0; i < 10; i++)
