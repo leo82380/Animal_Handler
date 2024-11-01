@@ -23,7 +23,7 @@ public class CommandManager : MonoBehaviour
     public List<Image> imageList = new List<Image>();
 
     private bool _isCorrect = false;
-    private bool _isClick = false;
+    //private bool _isClick = false;
 
     public event Action SuccesfullCommandEvent;
     
@@ -47,8 +47,6 @@ public class CommandManager : MonoBehaviour
 
     private void OnMouseMiddleClick()
     {
-        if (_isClick) return;
-        _isClick = true;
         
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Middle")
@@ -56,7 +54,7 @@ public class CommandManager : MonoBehaviour
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Middle");
             _isSuccessCount++;
-            _currentCommandIndex++;
+            _currentCommandIndex = Mathf.Clamp(_currentCommandIndex++, 0, 5);
         }
         else
         {
@@ -70,13 +68,11 @@ public class CommandManager : MonoBehaviour
             SuccesfullCommandEvent?.Invoke();
         }
 
-        _isClick = false;
     }
 
     private void OnMouseRightClick()
     {
-        if (_isClick) return;
-        _isClick = true;
+
 
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Right")
@@ -84,7 +80,7 @@ public class CommandManager : MonoBehaviour
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Right");
             _isSuccessCount++;
-            _currentCommandIndex++;
+            _currentCommandIndex = Mathf.Clamp(_currentCommandIndex++, 0, 5);
         }
         else
         {
@@ -97,14 +93,11 @@ public class CommandManager : MonoBehaviour
             MouseCommand.gameObject.SetActive(false);
             SuccesfullCommandEvent?.Invoke();
         }
-        
-        _isClick = false;
+
     }
 
     private void OnMouseLeftClick()
     {
-        if (_isClick) return;
-        _isClick = true;
 
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Left")
@@ -112,7 +105,7 @@ public class CommandManager : MonoBehaviour
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Left");
             _isSuccessCount++;
-            _currentCommandIndex++;
+            _currentCommandIndex = Mathf.Clamp(_currentCommandIndex++, 0, 5);
         }
         else
         {
@@ -125,8 +118,7 @@ public class CommandManager : MonoBehaviour
             MouseCommand.gameObject.SetActive(false);
             SuccesfullCommandEvent?.Invoke();
         }
-        
-        _isClick = false;
+
     }
     
     public void RandomCommandSetting(int count)

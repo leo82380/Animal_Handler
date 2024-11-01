@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GrabState
   m_EditorClassIdentifier: 
   StateEnum: 6
-  <PatternProbability>k__BackingField: 1
+  <PatternProbability>k__BackingField: 15

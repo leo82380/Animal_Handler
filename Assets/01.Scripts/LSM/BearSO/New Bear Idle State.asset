@@ -15,4 +15,4 @@ MonoBehaviour:
   StateEnum: 0
   patternDelayTime: 0.5
   attackChoicePanel: {fileID: 0}
-  patternEvasionCnt: 10
+  patternEvasionCnt: 5

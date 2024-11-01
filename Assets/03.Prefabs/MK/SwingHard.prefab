@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8346992219444294651}
   - component: {fileID: 1303403466278397465}
   m_Layer: 0
-  m_Name: SwingHardLoad
+  m_Name: SwingHard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

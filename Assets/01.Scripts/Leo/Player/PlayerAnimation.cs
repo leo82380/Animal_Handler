@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Manager.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -35,6 +36,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnDie()
     {
-        Debug.Log("Die");
+        SceneManager.LoadScene(0);
     }
 }

@@ -21,7 +21,10 @@ public class InputReaderSO : ScriptableObject, BaseInput.IPlayerActions
             _baseInput.Player.SetCallbacks(this);
         }
         _baseInput.Enable();
+        _isClick = false;
     }
+
+    private bool _isClick = false;
 
     public void OnMousePosition(InputAction.CallbackContext context)
     {
@@ -45,20 +48,44 @@ public class InputReaderSO : ScriptableObject, BaseInput.IPlayerActions
 
     public void OnMouseRightClick(InputAction.CallbackContext context)
     {
+        if (_isClick) return;
+        
+        _isClick = true;
+        
         if (context.started)
+        {
             MouseRightClickEvent?.Invoke();
+        }
+
+        _isClick = false;
     }
 
     public void OnMouseLeftClick(InputAction.CallbackContext context)
     {
+        if (_isClick) return;
+        
+        _isClick = true;
+        
         if (context.started)
+        {
             MouseLeftClickEvent?.Invoke();
+        }
+
+        _isClick = false;
     }
 
     public void OnMouseMiddleClick(InputAction.CallbackContext context)
     {
+        if (_isClick) return;
+        
+        _isClick = true;
+        
         if (context.started)
+        {
             MouseMiddleClickEvent?.Invoke();
+        }
+
+        _isClick = false;
     }
 
     public void OnMousePress(InputAction.CallbackContext context)
