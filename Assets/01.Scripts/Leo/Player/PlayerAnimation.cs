@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Manager.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,5 +38,10 @@ public class PlayerAnimation : MonoBehaviour
     private void OnDie()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void OnDestroy()
+    {
+        _health.OnDie -= OnDie;
     }
 }
