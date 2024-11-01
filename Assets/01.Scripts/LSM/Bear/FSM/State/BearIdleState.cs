@@ -29,7 +29,7 @@ public class BearIdleState : IdleState
         base.Enter();
         pattern = Random.Range((int)StateEnum.Pattern1, (int)StateEnum.Pattern1 + _owner.patterns.Count);
         //pattern = Random.Range((int)StateEnum.Pattern1, 2);
-        _owner.mainVisual.SetActive(false);
+        
         if(_patternCnt >= patternEvasionCnt)
         {
             _isOpenSelect = true;
@@ -47,6 +47,10 @@ public class BearIdleState : IdleState
             _currentDelayTime += Time.deltaTime;
             if (_currentDelayTime >= patternDelayTime)
             {
+                if(_owner.mainVisual.activeSelf)
+                {
+                    _owner.mainVisual.SetActive(false);
+                }
                 _stateMachine.ChangeState((StateEnum)pattern);
                 _currentDelayTime = 0;
             }
