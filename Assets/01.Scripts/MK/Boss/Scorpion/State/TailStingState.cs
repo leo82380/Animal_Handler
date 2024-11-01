@@ -1,4 +1,6 @@
 using System.Collections;
+using MK.Boss.Pattern;
+using ObjectPooling;
 using UnityEngine;
 
 namespace MK.Boss.State
@@ -9,8 +11,10 @@ namespace MK.Boss.State
         [field: SerializeField] public int PatternProbability { get; set; }
 
         [SerializeField] private int _attackCount;
+        [SerializeField] private float _attackLoadTime;
         [SerializeField] private float _attackCooldown;
-        [SerializeField] private float _radius;
+        [SerializeField] private int _radiusMin;
+        [SerializeField] private int _radiusMax;
 
         private Scorpion _scorpion;
         private bool _isAttack = false;
@@ -57,8 +61,13 @@ namespace MK.Boss.State
         {
             for (int i = 0; i < _attackCount; ++i)
             {
-                // TODO : 공격 범위 생성
-                // TODO : 공격 생성
+                AttackLoadCircle attackLoadCircle = PoolingManager.Instnace.Pop(PoolingType.AttackLoad_Circle) as AttackLoadCircle;
+                attackLoadCircle.RadiusAndPositionAttack(Mathf.Clamp(Random.Range(_radiusMin, _radiusMax + 1), 1, int.MaxValue), true);
+                
+                yield return new WaitForSeconds(_attackLoadTime);
+                
+                attackLoadCircle.RealAttack();
+                
                 yield return new WaitForSeconds(_attackCooldown);
             }
 

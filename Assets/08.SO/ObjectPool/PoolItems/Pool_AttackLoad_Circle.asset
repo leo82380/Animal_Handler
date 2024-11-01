@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_AttackLoad_Circle
+  m_EditorClassIdentifier: 
+  enumName: AttackLoad_Circle
+  poolingName: AttackLoad_Circle
+  description: "\uC6D0 \uBAA8\uC591 \uACF5\uACA9 \uACBD\uB85C"
+  poolCount: 10
+  prefabObject: {fileID: 328712107293855385, guid: d733c7f04a9509e4e8e56998c91b847b, type: 3}

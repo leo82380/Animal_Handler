@@ -1,12 +1,16 @@
 using System.Collections;
+using MK.Boss.Pattern;
+using ObjectPooling;
 using UnityEngine;
 
 namespace MK.Boss.State
 {
+    [CreateAssetMenu(menuName = "SO/Boss/Scorpion/Pattern5")]
     public class ToxicExplosionState : Pattern5State, IPatternProbability
     {
         [field: SerializeField] public int PatternProbability { get; set; }
         
+        [SerializeField] private float _attackLoadTime;
         [SerializeField] private float _attackCooldown;
         [SerializeField] private float _radius;
 
@@ -35,12 +39,14 @@ namespace MK.Boss.State
 
         private IEnumerator Attack()
         {
-            // TODO : 공격 범위
-            // spritemask로 없애고 그 범위로 콜라이더 해서 조지면 될듯
+            ToxicFlooringLoad toxicLoad = PoolingManager.Instnace.Pop(PoolingType.ToxicFlooringLoad) as ToxicFlooringLoad;
+            toxicLoad.RandomAttackPostion();
+            
+            yield return new WaitForSeconds(_attackLoadTime);
+            
+            toxicLoad.RealAttack();
             
             yield return new WaitForSeconds(_attackCooldown);
-            
-            // TODO : 공격
 
             _isAttack = true;
         }
