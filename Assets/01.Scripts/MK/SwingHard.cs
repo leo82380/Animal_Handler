@@ -15,6 +15,7 @@ public class SwingHard : MonoBehaviour, IPoolable
         _player = FindObjectOfType<Player>();
         _commandManager = FindObjectOfType<CommandManager>();
         _commandManager.SuccesfullCommandEvent += HandleCommand;
+        _commandManager.RandomCommandSetting(5);
         StartCoroutine(Attack());
     }
 

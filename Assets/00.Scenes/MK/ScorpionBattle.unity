@@ -652,6 +652,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f962d95907c9a1418d26398d7ba2060, type: 2}
   - {fileID: 11400000, guid: bddec62c432f4d8448b9d3b6f2f5e1bc, type: 2}
   - {fileID: 11400000, guid: c134e72f2fd5de34da288f0c6fe28b64, type: 2}
+  - {fileID: 11400000, guid: 8412fc9ded1df924b8ee537f2c3c0df8, type: 2}
   attackLoadPositionList:
   - {fileID: 1893372751211880590}
   - {fileID: 6356521727975517023}

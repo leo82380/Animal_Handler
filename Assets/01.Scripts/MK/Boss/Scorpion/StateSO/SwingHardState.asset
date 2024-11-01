@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cc4dd34999c094bafcd315bc1fc68a, type: 3}
-  m_Name: GrabState
+  m_Script: {fileID: 11500000, guid: b1f10c04e81464d48905429af44ced78, type: 3}
+  m_Name: SwingHardState
   m_EditorClassIdentifier: 
-  StateEnum: 6
-  <PatternProbability>k__BackingField: 1
+  StateEnum: 9
+  <PatternProbability>k__BackingField: 70
+  _attackChargeTime: 6

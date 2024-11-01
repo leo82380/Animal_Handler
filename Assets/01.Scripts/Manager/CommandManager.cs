@@ -23,6 +23,7 @@ public class CommandManager : MonoBehaviour
     public List<Image> imageList = new List<Image>();
 
     private bool _isCorrect = false;
+    private bool _isClick = false;
 
     public event Action SuccesfullCommandEvent;
     
@@ -35,8 +36,6 @@ public class CommandManager : MonoBehaviour
         _inputReaderSO.MouseLeftClickEvent += OnMouseLeftClick;
         _inputReaderSO.MouseRightClickEvent += OnMouseRightClick;
         _inputReaderSO.MouseMiddleClickEvent += OnMouseMiddleClick;
-
-        RandomCommandSetting(5);
     }
     
     private void OnDestroy()
@@ -48,36 +47,44 @@ public class CommandManager : MonoBehaviour
 
     private void OnMouseMiddleClick()
     {
+        if (_isClick) return;
+        _isClick = true;
+        
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Middle")
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Middle");
             _isSuccessCount++;
+            _currentCommandIndex++;
         }
         else
         {
             WrongCommandEvent?.Invoke();
             Debug.Log("Wrong at Middle");
         }
-
-        _currentCommandIndex++;
         
         if (_isSuccessCount >= 5)
         {
             MouseCommand.gameObject.SetActive(false);
             SuccesfullCommandEvent?.Invoke();
         }
+
+        _isClick = false;
     }
 
     private void OnMouseRightClick()
     {
+        if (_isClick) return;
+        _isClick = true;
+
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Right")
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Right");
             _isSuccessCount++;
+            _currentCommandIndex++;
         }
         else
         {
@@ -85,37 +92,41 @@ public class CommandManager : MonoBehaviour
             Debug.Log("Wrong at Right");
         }
         
-        _currentCommandIndex++;
-        
         if (_isSuccessCount >= 5)
         {
             MouseCommand.gameObject.SetActive(false);
             SuccesfullCommandEvent?.Invoke();
         }
+        
+        _isClick = false;
     }
 
     private void OnMouseLeftClick()
     {
+        if (_isClick) return;
+        _isClick = true;
+
         if (!_isCorrect) return;
         if (_commandList[_currentCommandIndex] == "Left")
         {
             CorrectCommandEvent?.Invoke();
             Debug.Log("Correct at Left");
             _isSuccessCount++;
+            _currentCommandIndex++;
         }
         else
         {
             WrongCommandEvent?.Invoke();
             Debug.Log("Wrong at Left");
         }
-        
-        _currentCommandIndex++;
 
         if (_isSuccessCount >= 5)
         {
             MouseCommand.gameObject.SetActive(false);
             SuccesfullCommandEvent?.Invoke();
         }
+        
+        _isClick = false;
     }
     
     public void RandomCommandSetting(int count)
