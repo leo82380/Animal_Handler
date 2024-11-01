@@ -19,12 +19,12 @@ public class AnimalGet : MonoBehaviour
                 OnGetAnimal?.Invoke();
             }
             _percentage = value;
-            _percentageText.text = $"진행도: {_percentage}%";
+            _percentageText.text = $"포획률: {_percentage}%";
         }
     }
 
     public void Init()
     {
-        _percentageText.text = $"진행도: {_percentage}%";
+        _percentageText.text = $"포획률: {_percentage}%";
     }
 }

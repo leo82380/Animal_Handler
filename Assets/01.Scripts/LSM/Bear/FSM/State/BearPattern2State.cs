@@ -50,6 +50,7 @@ public class BearPattern2State : Pattern2State
             else if(time > patternTime)
             {
                 MouseEventManager.Instnace.StopShake();
+                fullScrean.SetActive(false);
                 PlayerManager.Instnace.PlayerHealth.TakeDamage(1);
                 _endTriggerCalled = true;
             }
