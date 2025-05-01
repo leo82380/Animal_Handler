@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b5fd549d244d748089ac7a406927ca, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  setPercentage: 50
-  setUpgrade: 50
-  percentage: 30
-  UpgradeValue: 45
+  selectPercentage: {x: 30, y: 50}
+  valuePercentage: {x: 55, y: 75}

@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class option : MonoBehaviour
+public class OptionPanel : MonoBehaviour
 {
     [SerializeField] private GameObject optionUI;
     public List<string> mapString;
@@ -16,10 +15,20 @@ public class option : MonoBehaviour
         optionUI.SetActive(true);
     }
 
+    private void Awake()
+    {
+        foreach (var item in FindObjectsOfType<OptionPanel>())
+        {
+            if(item != this)
+            {
+                Destroy(item.gameObject);
+            }
+        }
+    }
+
     private void Start()
     {
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(optionUI);
+        DontDestroyOnLoad(gameObject);
         optionUI.SetActive(false);
 
         for (int i = 0; i < 10; i++)

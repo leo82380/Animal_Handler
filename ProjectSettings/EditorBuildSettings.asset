@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/00.Scenes/PolarBear.unity
     guid: 82666f3e1cade1742870b62c8e25980f
   - enabled: 1
+    path: Assets/00.Scenes/Oracle.unity
+    guid: ac601b887b6a3584aa91f854c308c674
+  - enabled: 1
     path: Assets/00.Scenes/MK/ScorpionBattle.unity
     guid: 63c6ffd799aacf64787d4cd5588bdae2
-  - enabled: 1
-    path: Assets/00.Scenes/MapleStory.unity
-    guid: ac601b887b6a3584aa91f854c308c674
   m_configObjects: {}

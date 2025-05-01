@@ -42,7 +42,7 @@ public class Orca : MonoBehaviour
 
     public IEnumerator StateReset()
     {
-        yield return new WaitForSeconds(7 - level + Random.Range(1, 5));
+        yield return new WaitForSeconds(Random.Range(3, 5));
 
         UseSkill();
     }

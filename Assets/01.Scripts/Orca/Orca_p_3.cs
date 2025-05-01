@@ -23,7 +23,7 @@ public class Orca_p_3 : OState
             obj.transform.localPosition = new Vector3(Random.Range(-930, 930), body.filedIsWater ? -300 : 650);
             obj.gameObject.SetActive(true);
 
-            obj.transform.DOScaleY(20, 1.8f).OnComplete(() => StartCoroutine(obj.Duration(3f)));
+            obj.transform.DOScaleY(20, 2.5f).OnComplete(() => StartCoroutine(obj.Duration(3f)));
         }
 
         yield return null;

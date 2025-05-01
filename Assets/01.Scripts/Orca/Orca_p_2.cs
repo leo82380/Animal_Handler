@@ -23,7 +23,7 @@ public class Orca_p_2 : OState
 
         yield return new WaitForSeconds(1f);
 
-        wave.DOLocalMove(new Vector3(leftStart ? 1350 : -1350, body.filedIsWater ? 600 : 1100), 2.3f);
+        wave.DOLocalMove(new Vector3(leftStart ? 1350 : -1350, body.filedIsWater ? 600 : 1100), 2.4f).SetEase(Ease.InCirc);
 
 
         StartCoroutine(body.StateReset());
