@@ -15,7 +15,6 @@ public class Health : MonoBehaviour, IDamageable
         ResetHealth();
     }
 
-
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
